@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Civilcast Analytics</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f9ad1f",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#231c0f",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-[#4d4841] dark:text-[#b3aca2]">
+    <div class="flex flex-col min-h-screen">
+        <header class="bg-black text-white">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center py-4">
+                    <div class="flex items-center gap-2.5">
+                        
+                        <img class="h-9 w-9" src="../assets/favicon.png" alt="civilcast">
+                        <h1 class="text-xl font-bold">Civilcast</h1>
+                    </div>
+                    <nav class="hidden md:flex items-center space-x-12 text-sm font-medium">
+                        <a class="text-primary" href="">Analytics</a>
+
+                        <a class="hover:text-primary transition-colors" href="Chat.html">Chat</a>
+                        <a class="hover:text-primary transition-colors" href="Department.html">Department</a>
+                        <a class="hover:text-primary transition-colors" href="Request.html">Requests</a>
+                        <a class="hover:text-primary transition-colors" href="KnowledgeBase.html">Knowledge Base</a>
+                    </nav>
+                    <div class="flex items-center gap-4">
+                        <div class="relative inline-block">
+                            <!-- Profile Icon -->
+                            <div id="profileBtn" class="w-10 h-10 bg-cover rounded-full cursor-pointer"
+                                style="background-image: url('../assets/collaborator.png');">
+                            </div>
+
+                            <!-- Popup -->
+                            <div id="profilePopup"
+                                class="hidden absolute right-0 mt-2 w-80 bg-white border rounded-lg shadow-lg p-4 z-50">
+                                <div class="flex items-center space-x-3">
+                                    <img src="../assets/admin.png" class="w-10 h-10 rounded-full" />
+                                    <div>
+                                        <p class="font-semibold text-black">Steve Jones</p>
+                                        <p class="text-sm text-gray-500">collaborator@civilcast.com</p>
+                                    </div>
+                                </div>
+                                <hr class="my-3">
+                                <p class="text-sm text-gray-700 pl-3">Collaborator</p>
+                                <a href="Settings.html">
+                                    <button
+                                        class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Settings</button>
+                                </a>
+                            </div>
+                        </div>
+
+                        <script>
+                            const btn = document.getElementById("profileBtn");
+                            const popup = document.getElementById("profilePopup");
+
+                            btn.addEventListener("click", () => {
+                                popup.classList.toggle("hidden");
+                            });
+                            document.addEventListener("click", (e) => {
+                                if (!btn.contains(e.target) && !popup.contains(e.target)) {
+                                    popup.classList.add("hidden");
+                                }
+                            });
+                        </script>
+                        <button class="md:hidden">
+                            <span class="material-symbols-outlined">menu</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="flex-1 flex flex-col">
+            <main class="flex-1 p-8 overflow-y-auto">
+                <div class="mb-8">
+                    <h2 class="text-3xl font-bold text-[#1c170d] dark:text-white">Analytics Summary</h2>
+                    <p class="text-base text-[#6b665e] dark:text-[#999185]">Overview of system performance and key
+                        metrics.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div
+                        class="bg-white dark:bg-background-dark/50 p-6 rounded-xl border border-primary/20 dark:border-primary/30 shadow-sm">
+                        <h3 class="text-base font-medium text-[#4d4841] dark:text-[#b3aca2]">Requests Processed</h3>
+                        <p class="text-4xl font-bold text-[#1c170d] dark:text-white my-2">1,250</p>
+                        <p class="text-sm font-medium text-green-600 dark:text-green-400">+15% vs last month</p>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-background-dark/50 p-6 rounded-xl border border-primary/20 dark:border-primary/30 shadow-sm">
+                        <h3 class="text-base font-medium text-[#4d4841] dark:text-[#b3aca2]">Average Response Time</h3>
+                        <p class="text-4xl font-bold text-[#1c170d] dark:text-white my-2">2.5 hours</p>
+                        <p class="text-sm font-medium text-red-600 dark:text-red-400">-5% vs last month</p>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-background-dark/50 p-6 rounded-xl border border-primary/20 dark:border-primary/30 shadow-sm">
+                        <h3 class="text-base font-medium text-[#4d4841] dark:text-[#b3aca2]">Knowledge Base Updates</h3>
+                        <p class="text-4xl font-bold text-[#1c170d] dark:text-white my-2">320</p>
+                        <p class="text-sm font-medium text-green-600 dark:text-green-400">+10% vs last month</p>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-bold text-[#1c170d] dark:text-white mb-4">Request Processing</h3>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                    <div
+                        class="bg-white dark:bg-background-dark/50 p-6 rounded-xl border border-primary/20 dark:border-primary/30">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="text-lg font-semibold text-[#1c170d] dark:text-white">Requests Over Time</h4>
+                                <p class="text-sm text-[#6b665e] dark:text-[#999185]">Last 30 Days</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-2xl font-bold text-green-600 dark:text-green-400">+12%</p>
+                            </div>
+                        </div>
+                        <div class="h-60 mt-4">
+                            <svg fill="none" height="100%" preserveAspectRatio="none" viewBox="0 0 475 150" width="100%"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25"
+                                    stroke="#f9ad1f" stroke-linecap="round" stroke-width="3"></path>
+                                <path
+                                    d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25V150H0V109Z"
+                                    fill="url(#paint0_linear_1)"></path>
+                                <defs>
+                                    <linearGradient gradientUnits="userSpaceOnUse" id="paint0_linear_1" x1="236"
+                                        x2="236" y1="1" y2="150">
+                                        <stop stop-color="#f9ad1f" stop-opacity="0.2"></stop>
+                                        <stop offset="1" stop-color="#f9ad1f" stop-opacity="0"></stop>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-background-dark/50 p-6 rounded-xl border border-primary/20 dark:border-primary/30">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="text-lg font-semibold text-[#1c170d] dark:text-white">Requests by Category
+                                </h4>
+                                <p class="text-sm text-[#6b665e] dark:text-[#999185]">Last 30 Days</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-2xl font-bold text-red-600 dark:text-red-400">-8%</p>
+                            </div>
+                        </div>
+                        <div class="h-60 mt-4">
+                            <canvas id="requestsByCategoryChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-bold text-[#1c170d] dark:text-white mb-4">Response Time &amp; Knowledge Base
+                </h3>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div
+                        class="bg-white dark:bg-background-dark/50 p-6 rounded-xl border border-primary/20 dark:border-primary/30">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="text-lg font-semibold text-[#1c170d] dark:text-white">Avg Response Time</h4>
+                                <p class="text-sm text-[#6b665e] dark:text-[#999185]">Last 30 Days</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-2xl font-bold text-red-600 dark:text-red-400">-7%</p>
+                            </div>
+                        </div>
+                        <div class="h-60 mt-4">
+                            <svg fill="none" height="100%" preserveAspectRatio="none" viewBox="0 0 475 150" width="100%"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25"
+                                    stroke="#f9ad1f" stroke-linecap="round" stroke-width="3"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-background-dark/50 p-6 rounded-xl border border-primary/20 dark:border-primary/30">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="text-lg font-semibold text-[#1c170d] dark:text-white">KB Updates by Category
+                                </h4>
+                                <p class="text-sm text-[#6b665e] dark:text-[#999185]">Last 30 Days</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-2xl font-bold text-green-600 dark:text-green-400">+10%</p>
+                            </div>
+                        </div>
+                        <div class="h-60 mt-4">
+                            <canvas id="kbUpdatesByCategoryChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script>
+        const requestsByCategoryCtx = document.getElementById('requestsByCategoryChart');
+        const kbUpdatesByCategoryCtx = document.getElementById('kbUpdatesByCategoryChart');
+        const textColor = document.body.classList.contains('dark') ? '#b3aca2' : '#4d4841';
+        new Chart(requestsByCategoryCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Sales', 'Engineering', 'Logistics', 'HR', 'Other'],
+                datasets: [{
+                    label: 'Requests by Category',
+                    data: [30, 25, 20, 15, 10],
+                    backgroundColor: [
+                        '#f9ad1f',
+                        '#fbc156',
+                        '#fcd58d',
+                        '#fde9c4',
+                        '#fef7e9',
+                    ],
+                    borderColor: document.body.classList.contains('dark') ? '#231c0f' : '#f8f7f5',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            color: textColor
+                        }
+                    }
+                }
+            }
+        });
+        new Chart(kbUpdatesByCategoryCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Product Specs', 'Safety Protocols', 'Installation Guides', 'Internal Policies'],
+                datasets: [{
+                    label: 'KB Updates',
+                    data: [40, 25, 20, 15],
+                    backgroundColor: '#f9ad1f',
+                    borderColor: '#f9ad1f',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: textColor
+                        },
+                        grid: {
+                            color: document.body.classList.contains('dark') ? 'rgba(179, 172, 162, 0.1)' : 'rgba(77, 72, 65, 0.1)'
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: textColor
+                        },
+                        grid: {
+                            color: document.body.classList.contains('dark') ? 'rgba(179, 172, 162, 0.1)' : 'rgba(77, 72, 65, 0.1)'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -58,25 +58,61 @@
         <header class="bg-background-dark text-content-dark sticky top-0 z-20">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-16">
-                    <div class="flex items-center">
-                        <span class="material-symbols-outlined text-primary text-3xl mr-2">
-                            analytics
-                        </span>
+                    <div class="flex items-center gap-2">
+                        <img class="h-9 w-9" src="../assets/favicon.png" alt="civilcast">
                         <h1 class="text-xl font-bold">Civilcast</h1>
                     </div>
-                    <nav class="hidden md:flex items-center space-x-4">
-                        <a class="text-sm font-medium text-primary" href="#">Analytics</a>
-                        <a class="text-sm font-medium hover:text-primary transition-colors" href="ManageSpaces.html">Manage Spaces</a>
-                        <a class="text-sm font-medium hover:text-primary transition-colors" href="AISkillManagement.html">AI Skills</a>
-                        <a class="text-sm font-medium hover:text-primary transition-colors" href="KnowledgeBase.html">Knowledge Base</a>
-                        <a class="text-sm font-medium hover:text-primary transition-colors" href="TeamManagement.html">Team</a>
-                        <a class="text-sm font-medium hover:text-primary transition-colors" href="IntegrationManagement.html">Integration</a>
-                        <a class="text-sm font-medium hover:text-primary transition-colors" href="SupportTicketHandling.html">Support</a>
+                    <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                        <a class="text-primary" href="">Analytics</a>
+
+                        <a class="hover:text-primary transition-colors" href="ManageSpaces.html">Manage Spaces</a>
+                        <a class="hover:text-primary transition-colors" href="AISkillManagement.html">AI Skills</a>
+                        <a class="hover:text-primary transition-colors" href="KnowledgeBase.html">Knowledge Base</a>
+                        <a class="hover:text-primary transition-colors" href="TeamManagement.html">Team</a>
+                        <a class="hover:text-primary transition-colors"
+                            href="IntegrationManagement.html">Integration</a>
+                        <a class="hover:text-primary transition-colors" href="SupportTicketHandling.html">Support</a>
                     </nav>
                     <div class="flex items-center">
-                        <div class="w-8 h-8 bg-cover rounded-full"
-                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCZdXMLi8i09WGejvCdgf-eU1KlBpjxWEVfHzM-uGciWDvX_lL7p38nmuNLXQ9y-4CEBBeX4CrbpogqhAu_UT-lIORGZ-oOIXasF-ynLvFJPe6-6_fLeAGA1poTZUthgllx3lHYHoe9XdX0GxEEaOJl5fYaQLs8PWbQWLFhZz0Qk43FL_lcgZKQVdOBCouWw189bePQE4kgEvjcNYAXuf81iR09JUKOa0vbEpH1v_JaMJ-gLOq2eKeVVKBt9RZJbRPLITwUfz249EY");'>
+                        <div class="relative inline-block">
+                            <!-- Profile Icon -->
+                            <div id="profileBtn" class="w-10 h-10 bg-cover rounded-full cursor-pointer"
+                                style="background-image: url('../assets/admin.png');">
+                            </div>
+
+                            <!-- Popup -->
+                            <div id="profilePopup"
+                                class="hidden absolute right-0 mt-2 w-60 bg-white border rounded-lg shadow-lg p-4 z-50">
+                                <div class="flex items-center space-x-3">
+                                    <img src="../assets/admin.png" class="w-10 h-10 rounded-full" />
+                                    <div>
+                                        <p class="font-semibold text-black">John Doe</p>
+                                        <p class="text-sm text-gray-500">admin@civilcast.com</p>
+                                    </div>
+                                </div>
+                                <hr class="my-3">
+                                <p class="text-sm text-gray-700 pl-3">IT Admin</p>
+                                <a href="Settings.html">
+                                    <button
+                                        class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Settings</button>
+                                </a>
+                            </div>
                         </div>
+
+                        <script>
+                            const btn = document.getElementById("profileBtn");
+                            const popup = document.getElementById("profilePopup");
+
+                            btn.addEventListener("click", () => {
+                                popup.classList.toggle("hidden");
+                            });
+                            document.addEventListener("click", (e) => {
+                                if (!btn.contains(e.target) && !popup.contains(e.target)) {
+                                    popup.classList.add("hidden");
+                                }
+                            });
+                        </script>
+
                     </div>
                 </div>
             </div>

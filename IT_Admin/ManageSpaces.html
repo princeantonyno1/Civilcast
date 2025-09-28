@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Civilcast - Manage Spaces</title>
-<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
-<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter:wght@400;500;700;900&amp;family=Noto+Sans:wght@400;500;700;900" onload="this.rel='stylesheet'" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Civilcast - Manage Spaces</title>
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter:wght@400;500;700;900&amp;family=Noto+Sans:wght@400;500;700;900"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -31,114 +35,171 @@
             },
         }
     </script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
+
 <body class="bg-background-dark font-display text-content-dark dark:text-content-light">
-<div class="flex flex-col min-h-screen">
-<header class="bg-background-dark text-content-dark dark:text-content-light sticky top-0 z-20">
-<div class="container mx-auto px-6 py-4 flex items-center justify-between">
-<div class="flex items-center gap-4">
-<svg class="h-8 w-8 text-white" fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z"></path>
-</svg>
-<h1 class="text-xl font-bold">Civilcast</h1>
-</div>
-<div class="flex items-center gap-6">
-<a class="text-sm font-medium hover:text-primary" href="#">Request</a>
-<a class="text-sm font-medium hover:text-primary" href="#">Knowledge Base</a>
-<a class="text-sm font-medium hover:text-primary" href="#">Analytics</a>
-<a class="text-sm font-medium hover:text-primary" href="#">Add New Knowledge</a>
-<a class="text-sm font-medium hover:text-primary" href="#">Chat</a>
-<a class="text-sm font-medium hover:text-primary" href="#">Help</a>
-</div>
-</div>
-</header>
-<main class="flex-grow bg-background-light text-content-light dark:bg-background-light dark:text-content-light">
-<div class="container mx-auto px-6 py-8">
-<div class="flex justify-between items-center mb-6">
-<h2 class="text-3xl font-bold text-gray-800 dark:text-gray-200">Manage Spaces</h2>
-<button class="bg-primary text-black font-bold py-2 px-4 rounded-lg flex items-center gap-2">
-<span class="material-symbols-outlined">add</span>
+    <div class="flex flex-col min-h-screen">
+        <header class="bg-background-dark text-content-dark dark:text-content-light sticky top-0 z-20">
+            <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <img class="h-9 w-9" src="../assets/favicon.png" alt="civilcast">
+
+                    <h1 class="text-xl font-bold">Civilcast</h1>
+                </div>
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a class="hover:text-primary transition-colors" href="AnalyticsDashboard.html">Analytics</a>
+                    <a class="text-primary" href="">Manage Spaces</a>
+                    <a class="hover:text-primary transition-colors" href="AISkillManagement.html">AI Skills</a>
+                    <a class="hover:text-primary transition-colors" href="KnowledgeBase.html">Knowledge Base</a>
+                    <a class="hover:text-primary transition-colors" href="TeamManagement.html">Team</a>
+                    <a class="hover:text-primary transition-colors" href="IntegrationManagement.html">Integration</a>
+                    <a class="hover:text-primary transition-colors" href="SupportTicketHandling.html">Support</a>
+                </nav>
+
+                <div class="relative inline-block">
+                    <!-- Profile Icon -->
+                    <div id="profileBtn" class="w-10 h-10 bg-cover rounded-full cursor-pointer"
+                        style="background-image: url('../assets/admin.png');">
+                    </div>
+
+                    <!-- Popup -->
+                    <div id="profilePopup"
+                        class="hidden absolute right-0 mt-2 w-60 bg-white border rounded-lg shadow-lg p-4 z-50">
+                        <div class="flex items-center space-x-3">
+                            <img src="../assets/admin.png" class="w-10 h-10 rounded-full" />
+                            <div>
+                                <p class="font-semibold text-black">John Doe</p>
+                                <p class="text-sm text-gray-500">admin@civilcast.com</p>
+                            </div>
+                        </div>
+                        <hr class="my-3">
+                        <p class="text-sm text-gray-700 pl-3">IT Admin</p>
+                        <a href="Settings.html">
+                            <button
+                                class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Settings</button>
+                        </a>
+                    </div>
+                </div>
+
+                <script>
+                    const btn = document.getElementById("profileBtn");
+                    const popup = document.getElementById("profilePopup");
+
+                    btn.addEventListener("click", () => {
+                        popup.classList.toggle("hidden");
+                    });
+                    document.addEventListener("click", (e) => {
+                        if (!btn.contains(e.target) && !popup.contains(e.target)) {
+                            popup.classList.add("hidden");
+                        }
+                    });
+                </script>
+            </div>
+        </header>
+        <main class="flex-grow bg-background-light text-content-light dark:bg-background-light dark:text-content-light">
+            <div class="container mx-auto px-6 py-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-200">Manage Spaces</h2>
+                    <button class="bg-primary text-black font-bold py-2 px-4 rounded-lg flex items-center gap-2">
+                        <span class="material-symbols-outlined">add</span>
                         Create New Space
                     </button>
-</div>
-<div class="mb-6">
-<div class="relative">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
-<input class="w-full max-w-sm bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-primary/50 text-gray-900 dark:text-gray-100" placeholder="Search spaces..." type="text"/>
-</div>
-</div>
-<div class="bg-white dark:bg-gray-900 rounded-xl shadow-md overflow-hidden">
-<table class="w-full text-left">
-<thead class="bg-gray-50 dark:bg-gray-800">
-<tr>
-<th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Space Name</th>
-<th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Department</th>
-<th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Knowledge Category</th>
-<th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300 text-right">Actions</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-<tr>
-<td class="p-4 font-medium text-gray-900 dark:text-gray-100">Space A</td>
-<td class="p-4 text-gray-500 dark:text-gray-400">IT Department</td>
-<td class="p-4 text-gray-500 dark:text-gray-400">Hardware</td>
-<td class="p-4 text-right">
-<div class="flex justify-end gap-4">
-<button class="bg-primary text-black font-bold py-1 px-3 rounded-lg text-sm">Edit</button>
-<button class="bg-red-500 text-white font-bold py-1 px-3 rounded-lg text-sm">Remove</button>
-</div>
-</td>
-</tr>
-<tr>
-<td class="p-4 font-medium text-gray-900 dark:text-gray-100">Space B</td>
-<td class="p-4 text-gray-500 dark:text-gray-400">HR Department</td>
-<td class="p-4 text-gray-500 dark:text-gray-400">Software</td>
-<td class="p-4 text-right">
-<div class="flex justify-end gap-4">
-<button class="bg-primary text-black font-bold py-1 px-3 rounded-lg text-sm">Edit</button>
-<button class="bg-red-500 text-white font-bold py-1 px-3 rounded-lg text-sm">Remove</button>
-</div>
-</td>
-</tr>
-<tr>
-<td class="p-4 font-medium text-gray-900 dark:text-gray-100">Space C</td>
-<td class="p-4 text-gray-500 dark:text-gray-400">Finance Department</td>
-<td class="p-4 text-gray-500 dark:text-gray-400">Networking</td>
-<td class="p-4 text-right">
-<div class="flex justify-end gap-4">
-<button class="bg-primary text-black font-bold py-1 px-3 rounded-lg text-sm">Edit</button>
-<button class="bg-red-500 text-white font-bold py-1 px-3 rounded-lg text-sm">Remove</button>
-</div>
-</td>
-</tr>
-<tr>
-<td class="p-4 font-medium text-gray-900 dark:text-gray-100">Space D</td>
-<td class="p-4 text-gray-500 dark:text-gray-400">Marketing Department</td>
-<td class="p-4 text-gray-500 dark:text-gray-400">Security</td>
-<td class="p-4 text-right">
-<div class="flex justify-end gap-4">
-<button class="bg-primary text-black font-bold py-1 px-3 rounded-lg text-sm">Edit</button>
-<button class="bg-red-500 text-white font-bold py-1 px-3 rounded-lg text-sm">Remove</button>
-</div>
-</td>
-</tr>
-<tr>
-<td class="p-4 font-medium text-gray-900 dark:text-gray-100">Space E</td>
-<td class="p-4 text-gray-500 dark:text-gray-400">Operations Department</td>
-<td class="p-4 text-gray-500 dark:text-gray-400">Cloud Services</td>
-<td class="p-4 text-right">
-<div class="flex justify-end gap-4">
-<button class="bg-primary text-black font-bold py-1 px-3 rounded-lg text-sm">Edit</button>
-<button class="bg-red-500 text-white font-bold py-1 px-3 rounded-lg text-sm">Remove</button>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</main>
-</div>
+                </div>
+                <div class="mb-6">
+                    <div class="relative">
+                        <span
+                            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+                        <input
+                            class="w-full max-w-sm bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-primary/50 text-gray-900 dark:text-gray-100"
+                            placeholder="Search spaces..." type="text" />
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-900 rounded-xl shadow-md overflow-hidden">
+                    <table class="w-full text-left">
+                        <thead class="bg-gray-50 dark:bg-gray-800">
+                            <tr>
+                                <th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Space Name</th>
+                                <th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Department</th>
+                                <th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Knowledge
+                                    Category</th>
+                                <th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300 text-right">
+                                    Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                            <tr>
+                                <td class="p-4 font-medium text-gray-900 dark:text-gray-100">Space A</td>
+                                <td class="p-4 text-gray-500 dark:text-gray-400">IT Department</td>
+                                <td class="p-4 text-gray-500 dark:text-gray-400">Hardware</td>
+                                <td class="p-4 text-right">
+                                    <div class="flex justify-end gap-4">
+                                        <button
+                                            class="bg-primary text-black font-bold py-1 px-3 rounded-lg text-sm">Edit</button>
+                                        <button
+                                            class="bg-red-500 text-white font-bold py-1 px-3 rounded-lg text-sm">Remove</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-medium text-gray-900 dark:text-gray-100">Space B</td>
+                                <td class="p-4 text-gray-500 dark:text-gray-400">HR Department</td>
+                                <td class="p-4 text-gray-500 dark:text-gray-400">Software</td>
+                                <td class="p-4 text-right">
+                                    <div class="flex justify-end gap-4">
+                                        <button
+                                            class="bg-primary text-black font-bold py-1 px-3 rounded-lg text-sm">Edit</button>
+                                        <button
+                                            class="bg-red-500 text-white font-bold py-1 px-3 rounded-lg text-sm">Remove</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-medium text-gray-900 dark:text-gray-100">Space C</td>
+                                <td class="p-4 text-gray-500 dark:text-gray-400">Finance Department</td>
+                                <td class="p-4 text-gray-500 dark:text-gray-400">Networking</td>
+                                <td class="p-4 text-right">
+                                    <div class="flex justify-end gap-4">
+                                        <button
+                                            class="bg-primary text-black font-bold py-1 px-3 rounded-lg text-sm">Edit</button>
+                                        <button
+                                            class="bg-red-500 text-white font-bold py-1 px-3 rounded-lg text-sm">Remove</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-medium text-gray-900 dark:text-gray-100">Space D</td>
+                                <td class="p-4 text-gray-500 dark:text-gray-400">Marketing Department</td>
+                                <td class="p-4 text-gray-500 dark:text-gray-400">Security</td>
+                                <td class="p-4 text-right">
+                                    <div class="flex justify-end gap-4">
+                                        <button
+                                            class="bg-primary text-black font-bold py-1 px-3 rounded-lg text-sm">Edit</button>
+                                        <button
+                                            class="bg-red-500 text-white font-bold py-1 px-3 rounded-lg text-sm">Remove</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-medium text-gray-900 dark:text-gray-100">Space E</td>
+                                <td class="p-4 text-gray-500 dark:text-gray-400">Operations Department</td>
+                                <td class="p-4 text-gray-500 dark:text-gray-400">Cloud Services</td>
+                                <td class="p-4 text-right">
+                                    <div class="flex justify-end gap-4">
+                                        <button
+                                            class="bg-primary text-black font-bold py-1 px-3 rounded-lg text-sm">Edit</button>
+                                        <button
+                                            class="bg-red-500 text-white font-bold py-1 px-3 rounded-lg text-sm">Remove</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
 
-</body></html>
+</body>
+
+</html>

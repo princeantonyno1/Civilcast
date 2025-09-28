@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Civilcast</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FAA61A", // Orange
+                        "background-light": "#ffffff", // White
+                        "background-dark": "#1a1a1a", // Dark gray for dark mode
+                        "sidebar-light": "#f5f5f5", // Light gray
+                        "sidebar-dark": "#2d2d2d", // Dark gray for dark mode sidebar
+                        "top-nav-light": "#000000", // Black
+                        "top-nav-dark": "#000000", // Black
+                        "text-main": "#000000", // Black
+                        "text-muted": "#6b7280", // Muted gray
+                        "success": "#22c55e", // Green
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-text-main dark:text-gray-200">
+    <div class="flex flex-col min-h-screen">
+        <header class="flex items-center justify-between px-6 py-3 bg-top-nav-light dark:bg-top-nav-dark text-white">
+            <div class="flex items-center gap-8">
+                <div class="flex items-center gap-3">
+
+                    <img class="h-9 w-9" src="../assets/favicon.png" alt="civilcast">
+                    <h1 class="text-xl font-bold text-white">Civilcast</h1>
+                </div>
+            </div>
+            <div class="flex items-center gap-6">
+
+                <nav class="hidden md:flex items-center space-x-12 text-sm font-medium">
+                    <a class="hover:text-primary transition-colors" href="Analytics.html">Analytics</a>
+
+                    <a class="text-primary" href="">Chat</a>
+                    <a class="hover:text-primary transition-colors" href="Department.html">Department</a>
+                    <a class="hover:text-primary transition-colors" href="Request.html">Requests</a>
+                    <a class="hover:text-primary transition-colors" href="KnowledgeBase.html">Knowledge Base</a>
+                </nav>
+                <div class="flex items-center gap-4 ml-6">
+                    <button class="p-2 mt-2 rounded-full hover:bg-primary/20 text-gray-300">
+                        <span class="material-symbols-outlined">
+                            notifications
+                        </span>
+                    </button>
+                    <div class="relative inline-block">
+                            <!-- Profile Icon -->
+                            <div id="profileBtn" class="w-10 h-10 bg-cover rounded-full cursor-pointer"
+                                style="background-image: url('../assets/collaborator.png');">
+                            </div>
+
+                            <!-- Popup -->
+                            <div id="profilePopup"
+                                class="hidden absolute right-0 mt-2 w-80 bg-white border rounded-lg shadow-lg p-4 z-50">
+                                <div class="flex items-center space-x-3">
+                                    <img src="../assets/admin.png" class="w-10 h-10 rounded-full" />
+                                    <div>
+                                        <p class="font-semibold text-black">Steve Jones</p>
+                                        <p class="text-sm text-gray-500">collaborator@civilcast.com</p>
+                                    </div>
+                                </div>
+                                <hr class="my-3">
+                                <p class="text-sm text-gray-700 pl-3">Collaborator</p>
+                                <a href="Settings.html">
+                                    <button
+                                        class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Settings</button>
+                                </a>
+                            </div>
+                        </div>
+
+                        <script>
+                            const btn = document.getElementById("profileBtn");
+                            const popup = document.getElementById("profilePopup");
+
+                            btn.addEventListener("click", () => {
+                                popup.classList.toggle("hidden");
+                            });
+                            document.addEventListener("click", (e) => {
+                                if (!btn.contains(e.target) && !popup.contains(e.target)) {
+                                    popup.classList.add("hidden");
+                                }
+                            });
+                        </script>
+                </div>
+            </div>
+        </header>
+        <div class="flex flex-1">
+            <aside class="w-80 bg-sidebar-light dark:bg-sidebar-dark p-6 hidden sm:flex flex-col">
+                <nav class="space-y-6">
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="material-symbols-outlined text-black dark:text-white">space_dashboard</span>
+                            <h3 class="text-sm font-bold text-black dark:text-white">Spaces</h3>
+                        </div>
+                        <div class="space-y-1">
+                            <a class="flex items-center gap-3 px-4 py-2 text-sm text-text-muted dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg"
+                                href="#">Operations</a>
+                            <a class="flex items-center gap-3 px-4 py-2 text-sm text-text-muted dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg"
+                                href="#">Sales &amp; Marketing</a>
+                            <a class="flex items-center gap-3 px-4 py-2 text-sm text-text-muted dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg"
+                                href="#">Logistics</a>
+                            <a class="flex items-center gap-3 px-4 py-2 text-sm text-text-muted dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg"
+                                href="#">Engineering &amp; Design</a>
+                            <a class="flex items-center gap-3 px-4 py-2 text-sm text-text-muted dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg"
+                                href="#">Project Management</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-black dark:text-white">school</span>
+                                <h3 class="text-sm font-bold text-black dark:text-white">Skills</h3>
+                            </div>
+                        </div>
+                        <div class="space-y-1">
+                            <a class="flex items-center gap-3 px-4 py-2 text-sm text-text-muted dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg"
+                                href="#">Installation guide</a>
+                            <a class="flex items-center gap-3 px-4 py-2 text-sm text-text-muted dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg"
+                                href="#">Product drawings</a>
+                            <a class="flex items-center gap-3 px-4 py-2 text-sm text-text-muted dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg"
+                                href="#">Australian standards</a>
+                            <a class="flex items-center gap-3 px-4 py-2 text-sm text-text-muted dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg"
+                                href="#">Our website and catalogue ...</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="material-symbols-outlined text-black dark:text-white">chat</span>
+                            <h3 class="text-sm font-bold text-black dark:text-white">Chats</h3>
+                        </div>
+                        <div class="space-y-1">
+                            <a class="flex items-center gap-3 px-4 py-2 text-sm text-black dark:text-white bg-gray-200 dark:bg-gray-700 rounded-lg"
+                                href="#">Skid Rings Clarification</a>
+                            <a class="flex items-center gap-3 px-4 py-2 text-sm text-text-muted dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg"
+                                href="#">Brochure enquiry</a>
+                            <a class="flex items-center gap-3 px-4 py-2 text-sm text-text-muted dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg"
+                                href="#">Surcharge Pit Grates</a>
+                            <a class="flex items-center gap-3 px-4 py-2 text-sm text-text-muted dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg"
+                                href="#">Colour and Theme Details</a>
+                        </div>
+                    </div>
+                </nav>
+            </aside>
+            <div class="flex-1 flex flex-col">
+                <div class="p-6">
+                    <div class="relative flex justify-start">
+                        <button
+                            class="flex items-center gap-2 px-3 py-1.5 text-sm bg-gray-200 dark:bg-gray-700 text-black dark:text-black rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600">
+                            <span>Employee</span>
+                            <span class="material-symbols-outlined text-xs">arrow_drop_down</span>
+                        </button>
+                    </div>
+                </div>
+                <main
+                    class="flex-1 bg-background-light dark:bg-background-dark flex flex-col justify-center items-center -mt-20">
+                    <div class="w-full max-w-4xl mx-auto">
+                        <div class="text-center mb-4">
+                            <p class="text-2xl font-bold text-black dark:text-white">Who is this?</p>
+                        </div>
+                        <div class="mb-6 flex justify-center">
+                            <div class="flex items-center bg-white border border-primary rounded-lg shadow-sm">
+                                <button
+                                    class="px-4 py-2 text-sm font-medium text-black bg-primary rounded-l-md">Employee</button>
+                                <button
+                                    class="px-4 py-2 text-sm font-medium text-black bg-white hover:bg-primary/10 rounded-r-md">Customer</button>
+                            </div>
+                        </div>
+                        <div
+                            class="relative @container shadow-lg hover:shadow-2xl transition-shadow duration-300 rounded-lg">
+                            <textarea
+                                class="w-full pl-4 pr-32 py-3 rounded-lg bg-background-light dark:bg-gray-800 border border-gray-300 dark:border-gray-600 focus:ring-primary focus:border-primary resize-none text-sm text-text-main dark:text-white placeholder-text-muted dark:placeholder-gray-400"
+                                placeholder="Ask Civilcast..." rows="1"></textarea>
+                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                <button
+                                    class="p-2 rounded-full text-text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                    <span class="material-symbols-outlined">settings</span>
+                                </button>
+                                <button
+                                    class="hidden @[480px]:inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-black bg-primary rounded-lg hover:opacity-90">
+                                    Send
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex flex-wrap justify-center gap-2">
+                            <button
+                                class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 text-black dark:text-black rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">Satisfied</button>
+                            <button
+                                class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 text-black dark:text-black rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">Report
+                                Issue</button>
+                            <button
+                                class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 text-black dark:text-black rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">Suggest
+                                Correction</button>
+                            <button
+                                class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 text-black dark:text-black rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">Human
+                                Assistance</button>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

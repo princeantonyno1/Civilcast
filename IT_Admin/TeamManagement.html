@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Civilcast - Team Management</title>
-<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
-<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter:wght@400;500;600;700" onload="this.rel='stylesheet'" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Civilcast - Team Management</title>
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter:wght@400;500;600;700"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -35,165 +38,223 @@
             },
         }
     </script>
-<style>
+    <style>
         .status-active {
-            background-color: #28a7451a;color: #28a745;
+            background-color: #28a7451a;
+            color: #28a745;
         }
+
         .status-inactive {
-            background-color: #dc35451a;color: #dc3545;
+            background-color: #dc35451a;
+            color: #dc3545;
         }
     </style>
 </head>
+
 <body class="font-display bg-background-dark">
-<div class="flex flex-col min-h-screen">
-<header class="bg-background-dark sticky top-0 z-50">
-<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-<div class="flex h-16 items-center justify-between">
-<div class="flex items-center">
-<div class="flex-shrink-0">
-<svg class="h-8 w-8 text-primary" fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z"></path>
-</svg>
-</div>
-<h1 class="text-xl font-bold text-content-dark ml-3">Civilcast</h1>
-</div>
-<div class="hidden md:block">
-<nav class="flex items-center space-x-4">
-<a class="text-content-dark hover:bg-subtle-dark px-3 py-2 rounded-md text-sm font-medium" href="#">Request</a>
-<a class="text-content-dark hover:bg-subtle-dark px-3 py-2 rounded-md text-sm font-medium" href="#">Knowledge Base</a>
-<a class="text-content-dark hover:bg-subtle-dark px-3 py-2 rounded-md text-sm font-medium" href="#">Analytics</a>
-<a class="text-content-dark hover:bg-subtle-dark px-3 py-2 rounded-md text-sm font-medium" href="#">Add New Knowledge</a>
-<a class="text-content-dark hover:bg-subtle-dark px-3 py-2 rounded-md text-sm font-medium" href="#">Chat</a>
-<a class="text-content-dark hover:bg-subtle-dark px-3 py-2 rounded-md text-sm font-medium" href="#">Help</a>
-</nav>
-</div>
-<div class="flex items-center">
-<div class="ml-4 flex items-center md:ml-6">
-<div class="relative ml-3">
-<div>
-<button aria-expanded="false" aria-haspopup="true" class="flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" type="button">
-<span class="sr-only">Open user menu</span>
-<img alt="" class="h-8 w-8 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaSZrpjkZ9ZlPL8dCmQMJXEcCg2kqpgPOKmIg9uKuiMyj_3OBTkFp9TWsDqxvRM1GqiR8X6WyeQY0_9_UoYL_H7EzaCXK9Y4qQzRooKPPtf77andguAcmQInHPmtZcMActT02DbiG7d6MUz9ehnIwjBop7oWAYgIZvJfBNWDjWzPeFD1S2dGm_08PdNSCP47j4XBsajKDCfFvp0bBy0h3GF8QYBklv9eoojBcKpnP9Qy7y9e2LUsZ1AqlzPiC327e3E0OwGBGF_VQ"/>
-</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</header>
-<main class="flex-grow bg-background-light text-content-light">
-<div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-<div class="px-4 py-6 sm:px-0">
-<header class="mb-8">
-<h2 class="text-3xl font-bold leading-tight text-content-light">Team Management</h2>
-<p class="mt-1 text-base text-gray-500">Manage user access and roles within the organization.</p>
-</header>
-<div class="mb-6 flex items-center justify-between">
-<div class="relative w-full max-w-md">
-<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-<svg aria-hidden="true" class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-<path clip-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" fill-rule="evenodd"></path>
-</svg>
-</div>
-<input class="block w-full rounded-md border-0 bg-subtle-light py-2 pl-10 pr-3 text-content-light placeholder:text-gray-400 focus:bg-background-light focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6" id="search" name="search" placeholder="Search users by name or email..." type="text"/>
-</div>
-<button class="ml-4 flex-shrink-0 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-content-light shadow-sm hover:bg-yellow-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+    <div class="flex flex-col min-h-screen">
+        <header class="bg-background-dark sticky top-0 z-50">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="flex h-16 items-center justify-between">
+                    <div class="flex items-center gap-2">
+                                                <img class="h-9 w-9" src="../assets/favicon.png" alt="civilcast">
+
+                        <h1 class="text-xl font-bold text-content-dark">Civilcast</h1>
+                    </div>
+                    <div class="hidden md:block ">
+                        <nav class="hidden md:flex items-center space-x-8 text-sm text-white font-medium">
+                        <a class="hover:text-primary transition-colors" href="AnalyticsDashboard.html">Analytics</a>
+
+                        <a class="hover:text-primary transition-colors" href="ManageSpaces.html">Manage Spaces</a>
+                        <a class="hover:text-primary transition-colors" href="AISkillManagement.html">AI Skills</a>
+                        <a class="hover:text-primary transition-colors" href="KnowledgeBase.html">Knowledge Base</a>
+                        <a class="text-primary" href="">Team</a>
+                        <a class="hover:text-primary transition-colors" href="IntegrationManagement.html">Integration</a>
+                        <a class="hover:text-primary transition-colors" href="SupportTicketHandling.html">Support</a>
+                    </nav>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="ml-4 flex items-center md:ml-6">
+                            <div class="relative inline-block">
+                            <!-- Profile Icon -->
+                            <div id="profileBtn" class="w-10 h-10 bg-cover rounded-full cursor-pointer"
+                                style="background-image: url('../assets/admin.png');">
+                            </div>
+
+                            <!-- Popup -->
+                            <div id="profilePopup"
+                                class="hidden absolute right-0 mt-2 w-60 bg-white border rounded-lg shadow-lg p-4 z-50">
+                                <div class="flex items-center space-x-3">
+                                    <img src="../assets/admin.png" class="w-10 h-10 rounded-full" />
+                                    <div>
+                                        <p class="font-semibold text-black">John Doe</p>
+                                        <p class="text-sm text-gray-500">admin@civilcast.com</p>
+                                    </div>
+                                </div>
+                                <hr class="my-3">
+                                <p class="text-sm text-gray-700 pl-3">IT Admin</p>
+                                <a href="Settings.html">
+                                <button  class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Settings</button>
+                                </a>
+                            </div>
+                        </div>
+
+                        <script>
+                            const btn = document.getElementById("profileBtn");
+                            const popup = document.getElementById("profilePopup");
+
+                            btn.addEventListener("click", () => {
+                                popup.classList.toggle("hidden");
+                            });
+                            document.addEventListener("click", (e) => {
+                                if (!btn.contains(e.target) && !popup.contains(e.target)) {
+                                    popup.classList.add("hidden");
+                                }
+                            });
+                        </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="flex-grow bg-background-light text-content-light">
+            <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+                <div class="px-4 py-6 sm:px-0">
+                    <header class="mb-8">
+                        <h2 class="text-3xl font-bold leading-tight text-content-light">Team Management</h2>
+                        <p class="mt-1 text-base text-gray-500">Manage user access and roles within the organization.
+                        </p>
+                    </header>
+                    <div class="mb-6 flex items-center justify-between">
+                        <div class="relative w-full max-w-md">
+                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                <svg aria-hidden="true" class="h-5 w-5 text-gray-400" fill="currentColor"
+                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path clip-rule="evenodd"
+                                        d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+                                        fill-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <input
+                                class="block w-full rounded-md border-0 bg-subtle-light py-2 pl-10 pr-3 text-content-light placeholder:text-gray-400 focus:bg-background-light focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+                                id="search" name="search" placeholder="Search users by name or email..." type="text" />
+                        </div>
+                        <button
+                            class="ml-4 flex-shrink-0 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-content-light shadow-sm hover:bg-yellow-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
                             Add New User
                         </button>
-</div>
-<div class="overflow-x-auto rounded-lg border border-border-light bg-background-light">
-<table class="min-w-full divide-y divide-border-light">
-<thead class="bg-subtle-light">
-<tr>
-<th class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-content-light sm:pl-6" scope="col">User</th>
-<th class="px-3 py-3.5 text-left text-sm font-semibold text-content-light" scope="col">Role</th>
-<th class="px-3 py-3.5 text-left text-sm font-semibold text-content-light" scope="col">Status</th>
-<th class="px-3 py-3.5 text-left text-sm font-semibold text-content-light" scope="col">Department</th>
-<th class="relative py-3.5 pl-3 pr-4 sm:pr-6" scope="col">
-<span class="sr-only">Actions</span>
-</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-border-light bg-background-light">
-<tr>
-<td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
-<div class="flex items-center">
-<div class="h-10 w-10 flex-shrink-0">
-<img alt="" class="h-10 w-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR7GpxxFtn5zokeLWb0Y_rghPkG0Gccl5uBKi6WiCzUwgDoysKVoFjr6u9DnH8Q39eayg-mqg8fQubduFYgRLztylsop6DA5gEpObDhMird_D3y87IbC2hcVPSxmxXkYNNOA116OY2IBxLsum3TF2cqc_psMufzj0O8Ty5R6rtt2Cv6JpjGCCEwvpi6En2BASBXDIAuQBAT8Wir1QkHazqWSElxQzL6DrRFcCbfNLwtLelO-TFIICY32fGb4r5Y8k62g8UlkQoSK4"/>
-</div>
-<div class="ml-4">
-<div class="font-medium text-content-light">Ethan Carter</div>
-<div class="text-gray-500">ethan.carter@example.com</div>
-</div>
-</div>
-</td>
-<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-<span class="inline-flex rounded-full bg-blue-100 px-2 text-xs font-semibold leading-5 text-blue-800">IT Admin</span>
-</td>
-<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-<span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">Active</span>
-</td>
-<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">IT</td>
-<td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-<a class="text-primary hover:text-yellow-400" href="#">Edit</a>
-<a class="ml-4 text-red-600 hover:text-red-800" href="#">Remove</a>
-</td>
-</tr>
-<tr>
-<td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
-<div class="flex items-center">
-<div class="h-10 w-10 flex-shrink-0">
-<img alt="" class="h-10 w-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR7GpxxFtn5zokeLWb0Y_rghPkG0Gccl5uBKi6WiCzUwgDoysKVoFjr6u9DnH8Q39eayg-mqg8fQubduFYgRLztylsop6DA5gEpObDhMird_D3y87IbC2hcVPSxmxXkYNNOA116OY2IBxLsum3TF2cqc_psMufzj0O8Ty5R6rtt2Cv6JpjGCCEwvpi6En2BASBXDIAuQBAT8Wir1QkHazqWSElxQzL6DrRFcCbfNLwtLelO-TFIICY32fGb4r5Y8k62g8UlkQoSK4"/>
-</div>
-<div class="ml-4">
-<div class="font-medium text-content-light">Olivia Bennett</div>
-<div class="text-gray-500">olivia.bennett@example.com</div>
-</div>
-</div>
-</td>
-<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-<span class="inline-flex rounded-full bg-gray-100 px-2 text-xs font-semibold leading-5 text-gray-800">Employee</span>
-</td>
-<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-<span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">Active</span>
-</td>
-<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Marketing</td>
-<td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-<a class="text-primary hover:text-yellow-400" href="#">Edit</a>
-<a class="ml-4 text-red-600 hover:text-red-800" href="#">Remove</a>
-</td>
-</tr>
-<tr>
-<td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
-<div class="flex items-center">
-<div class="h-10 w-10 flex-shrink-0">
-<img alt="" class="h-10 w-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR7GpxxFtn5zokeLWb0Y_rghPkG0Gccl5uBKi6WiCzUwgDoysKVoFjr6u9DnH8Q39eayg-mqg8fQubduFYgRLztylsop6DA5gEpObDhMird_D3y87IbC2hcVPSxmxXkYNNOA116OY2IBxLsum3TF2cqc_psMufzj0O8Ty5R6rtt2Cv6JpjGCCEwvpi6En2BASBXDIAuQBAT8Wir1QkHazqWSElxQzL6DrRFcCbfNLwtLelO-TFIICY32fGb4r5Y8k62g8UlkQoSK4"/>
-</div>
-<div class="ml-4">
-<div class="font-medium text-content-light">Noah Thompson</div>
-<div class="text-gray-500">noah.thompson@example.com</div>
-</div>
-</div>
-</td>
-<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-<span class="inline-flex rounded-full bg-purple-100 px-2 text-xs font-semibold leading-5 text-purple-800">Collaborator</span>
-</td>
-<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-<span class="inline-flex rounded-full bg-red-100 px-2 text-xs font-semibold leading-5 text-red-800">Inactive</span>
-</td>
-<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Sales</td>
-<td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-<a class="text-primary hover:text-yellow-400" href="#">Edit</a>
-<a class="ml-4 text-red-600 hover:text-red-800" href="#">Remove</a>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</main>
-</div>
+                    </div>
+                    <div class="overflow-x-auto rounded-lg border border-border-light bg-background-light">
+                        <table class="min-w-full divide-y divide-border-light">
+                            <thead class="bg-subtle-light">
+                                <tr>
+                                    <th class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-content-light sm:pl-6"
+                                        scope="col">User</th>
+                                    <th class="px-3 py-3.5 text-left text-sm font-semibold text-content-light"
+                                        scope="col">Role</th>
+                                    <th class="px-3 py-3.5 text-left text-sm font-semibold text-content-light"
+                                        scope="col">Status</th>
+                                    <th class="px-3 py-3.5 text-left text-sm font-semibold text-content-light"
+                                        scope="col">Department</th>
+                                    <th class="relative py-3.5 pl-3 pr-4 sm:pr-6" scope="col">
+                                        <span class="sr-only">Actions</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-border-light bg-background-light">
+                                <tr>
+                                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
+                                        <div class="flex items-center">
+                                            <div class="h-10 w-10 flex-shrink-0">
+                                                <img alt="" class="h-10 w-10 rounded-full"
+                                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR7GpxxFtn5zokeLWb0Y_rghPkG0Gccl5uBKi6WiCzUwgDoysKVoFjr6u9DnH8Q39eayg-mqg8fQubduFYgRLztylsop6DA5gEpObDhMird_D3y87IbC2hcVPSxmxXkYNNOA116OY2IBxLsum3TF2cqc_psMufzj0O8Ty5R6rtt2Cv6JpjGCCEwvpi6En2BASBXDIAuQBAT8Wir1QkHazqWSElxQzL6DrRFcCbfNLwtLelO-TFIICY32fGb4r5Y8k62g8UlkQoSK4" />
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="font-medium text-content-light">Ethan Carter</div>
+                                                <div class="text-gray-500">ethan.carter@example.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                        <span
+                                            class="inline-flex rounded-full bg-blue-100 px-2 text-xs font-semibold leading-5 text-blue-800">IT
+                                            Admin</span>
+                                    </td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                        <span
+                                            class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">Active</span>
+                                    </td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">IT</td>
+                                    <td
+                                        class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                        <a class="text-primary hover:text-yellow-400" href="#">Edit</a>
+                                        <a class="ml-4 text-red-600 hover:text-red-800" href="#">Remove</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
+                                        <div class="flex items-center">
+                                            <div class="h-10 w-10 flex-shrink-0">
+                                                <img alt="" class="h-10 w-10 rounded-full"
+                                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR7GpxxFtn5zokeLWb0Y_rghPkG0Gccl5uBKi6WiCzUwgDoysKVoFjr6u9DnH8Q39eayg-mqg8fQubduFYgRLztylsop6DA5gEpObDhMird_D3y87IbC2hcVPSxmxXkYNNOA116OY2IBxLsum3TF2cqc_psMufzj0O8Ty5R6rtt2Cv6JpjGCCEwvpi6En2BASBXDIAuQBAT8Wir1QkHazqWSElxQzL6DrRFcCbfNLwtLelO-TFIICY32fGb4r5Y8k62g8UlkQoSK4" />
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="font-medium text-content-light">Olivia Bennett</div>
+                                                <div class="text-gray-500">olivia.bennett@example.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                        <span
+                                            class="inline-flex rounded-full bg-gray-100 px-2 text-xs font-semibold leading-5 text-gray-800">Employee</span>
+                                    </td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                        <span
+                                            class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">Active</span>
+                                    </td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Marketing</td>
+                                    <td
+                                        class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                        <a class="text-primary hover:text-yellow-400" href="#">Edit</a>
+                                        <a class="ml-4 text-red-600 hover:text-red-800" href="#">Remove</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
+                                        <div class="flex items-center">
+                                            <div class="h-10 w-10 flex-shrink-0">
+                                                <img alt="" class="h-10 w-10 rounded-full"
+                                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR7GpxxFtn5zokeLWb0Y_rghPkG0Gccl5uBKi6WiCzUwgDoysKVoFjr6u9DnH8Q39eayg-mqg8fQubduFYgRLztylsop6DA5gEpObDhMird_D3y87IbC2hcVPSxmxXkYNNOA116OY2IBxLsum3TF2cqc_psMufzj0O8Ty5R6rtt2Cv6JpjGCCEwvpi6En2BASBXDIAuQBAT8Wir1QkHazqWSElxQzL6DrRFcCbfNLwtLelO-TFIICY32fGb4r5Y8k62g8UlkQoSK4" />
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="font-medium text-content-light">Noah Thompson</div>
+                                                <div class="text-gray-500">noah.thompson@example.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                        <span
+                                            class="inline-flex rounded-full bg-purple-100 px-2 text-xs font-semibold leading-5 text-purple-800">Collaborator</span>
+                                    </td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                        <span
+                                            class="inline-flex rounded-full bg-red-100 px-2 text-xs font-semibold leading-5 text-red-800">Inactive</span>
+                                    </td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Sales</td>
+                                    <td
+                                        class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                        <a class="text-primary hover:text-yellow-400" href="#">Edit</a>
+                                        <a class="ml-4 text-red-600 hover:text-red-800" href="#">Remove</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
 
-</body></html>
+</body>
+
+</html>

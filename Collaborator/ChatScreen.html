@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Civilcast</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#facc15", // Yellow
+                        "background-light": "#ffffff", // White
+                        "background-dark": "#1a1a1a", // Dark gray for dark mode
+                        "sidebar-light": "#f5f5f5", // Light gray
+                        "sidebar-dark": "#2d2d2d", // Dark gray for dark mode sidebar
+                        "top-nav-light": "#000000", // Black
+                        "top-nav-dark": "#000000", // Black
+                        "text-main": "#000000", // Black
+                        "text-muted": "#6b7280", // Muted gray
+                        "success": "#22c55e", // Green
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-text-main dark:text-gray-200">
+    <div class="flex flex-col min-h-screen">
+        <header class="flex items-center justify-between px-6 py-3 bg-top-nav-light dark:bg-top-nav-dark text-white">
+            <div class="flex items-center gap-8">
+                <div class="flex items-center gap-3 bg-black px-3 py-1 rounded-md">
+
+                    <img class="h-9 w-9" src="../assets/favicon.png" alt="civilcast">
+                    <h1 class="text-xl font-bold text-white">Civilcast</h1>
+                </div>
+            </div>
+            <div class="flex items-center gap-6">
+                <nav class="hidden md:flex items-center space-x-12 text-sm font-medium">
+                    <a class="hover:text-primary transition-colors" href="Analytics.html">Analytics</a>
+
+                    <a class="text-primary" href="Chat.html">Chat</a>
+                    <a class="hover:text-primary transition-colors" href="Department.html">Department</a>
+                    <a class="hover:text-primary transition-colors" href="Request.html">Requests</a>
+                    <a class="hover:text-primary transition-colors" href="KnowledgeBase.html">Knowledge Base</a>
+                </nav>
+                <div class="flex items-center gap-4 ml-6">
+                    <button class="p-2 rounded-full hover:bg-primary/20 text-gray-300">
+                        <svg fill="currentColor" height="20" viewBox="0 0 256 256" width="20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="relative inline-block">
+                            <!-- Profile Icon -->
+                            <div id="profileBtn" class="w-10 h-10 bg-cover rounded-full cursor-pointer"
+                                style="background-image: url('../assets/collaborator.png');">
+                            </div>
+
+                            <!-- Popup -->
+                            <div id="profilePopup"
+                                class="hidden absolute right-0 mt-2 w-80 bg-white border rounded-lg shadow-lg p-4 z-50">
+                                <div class="flex items-center space-x-3">
+                                    <img src="../assets/admin.png" class="w-10 h-10 rounded-full" />
+                                    <div>
+                                        <p class="font-semibold text-black">Steve Jones</p>
+                                        <p class="text-sm text-gray-500">collaborator@civilcast.com</p>
+                                    </div>
+                                </div>
+                                <hr class="my-3">
+                                <p class="text-sm text-gray-700 pl-3">Collaborator</p>
+                                <a href="Settings.html">
+                                    <button
+                                        class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Settings</button>
+                                </a>
+                            </div>
+                        </div>
+
+                        <script>
+                            const btn = document.getElementById("profileBtn");
+                            const popup = document.getElementById("profilePopup");
+
+                            btn.addEventListener("click", () => {
+                                popup.classList.toggle("hidden");
+                            });
+                            document.addEventListener("click", (e) => {
+                                if (!btn.contains(e.target) && !popup.contains(e.target)) {
+                                    popup.classList.add("hidden");
+                                }
+                            });
+                        </script>
+                </div>
+            </div>
+        </header>
+        <div class="flex flex-1">
+            <aside class="w-80 p-6 bg-sidebar-light dark:bg-sidebar-dark hidden lg:flex flex-col gap-8">
+                <nav>
+                    <h3 class="flex items-center px-3 text-lg font-bold text-gray-900 dark:text-white mb-2">
+                        <span class="material-symbols-outlined mr-2">space_dashboard</span>
+                        Spaces
+                    </h3>
+                    <ul class="space-y-1">
+                        <li><a class="block px-3 py-2 text-text-muted dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md"
+                                href="#">Operations</a></li>
+                        <li><a class="block px-3 py-2 text-text-muted dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md"
+                                href="#">Sales &amp; Marketing</a></li>
+                        <li><a class="block px-3 py-2 text-text-muted dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md"
+                                href="#">Logistics</a></li>
+                        <li><a class="block px-3 py-2 text-text-muted dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md"
+                                href="#">Engineering &amp; Design</a></li>
+                        <li><a class="block px-3 py-2 text-text-muted dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md"
+                                href="#">Project Management</a></li>
+                    </ul>
+                </nav>
+                <nav>
+                    <h3 class="flex items-center px-3 text-lg font-bold text-gray-900 dark:text-white mb-2">
+                        <span class="material-symbols-outlined mr-2">psychology</span>
+                        Skills
+                    </h3>
+                    <ul class="space-y-1">
+                        <li><a class="block px-3 py-2 text-text-muted dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md"
+                                href="#">Installation guide</a></li>
+                        <li><a class="block px-3 py-2 text-text-muted dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md"
+                                href="#">Product drawings</a></li>
+                        <li><a class="block px-3 py-2 text-text-muted dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md"
+                                href="#">Australian standards</a></li>
+                        <li><a class="block px-3 py-2 text-text-muted dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md"
+                                href="#">Our website and catalogue ...</a></li>
+                    </ul>
+                </nav>
+                <nav>
+                    <h3 class="flex items-center px-3 text-lg font-bold text-gray-900 dark:text-white mb-2">
+                        <span class="material-symbols-outlined mr-2">chat</span>
+                        Chats
+                    </h3>
+                    <ul class="space-y-1">
+                        <li><a class="block px-3 py-2 text-black bg-gray-200 dark:text-white dark:bg-gray-700 rounded-md"
+                                href="#">Skid Rings Clarification</a></li>
+                        <li><a class="block px-3 py-2 text-text-muted dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md"
+                                href="#">Brochure enquiry</a></li>
+                        <li><a class="block px-3 py-2 text-text-muted dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md"
+                                href="#">Surcharge Pit Grates</a></li>
+                        <li><a class="block px-3 py-2 text-text-muted dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md"
+                                href="#">Colour and Theme Details</a></li>
+                    </ul>
+                </nav>
+            </aside>
+            <main class="flex-1 p-6 bg-background-light dark:bg-background-dark flex flex-col">
+                <div class="max-w-4xl mx-auto flex-1 flex flex-col w-full">
+                    <div class="mb-6">
+                        <h2 class="text-3xl font-bold text-text-main dark:text-white">Skid Rings Clarification</h2>
+                        <p class="text-sm text-text-muted dark:text-gray-400">A conversation about skid rings</p>
+                    </div>
+                    <div class="flex-1 space-y-6 overflow-y-auto pr-4">
+                        <div class="flex items-start gap-4 justify-end">
+                            <div class="flex-1 max-w-lg text-right">
+                                <div class="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg inline-block text-left">
+                                    <p class="text-sm text-gray-800 dark:text-gray-200">
+                                        Hi there, can you please clarify the specifications for the skid rings? I need
+                                        to know the material and the load capacity.
+                                    </p>
+                                </div>
+                                <p class="text-xs text-text-muted dark:text-gray-500 mt-1">John Doe - 10:30 AM</p>
+                            </div>
+                            <div class="w-10 h-10 bg-cover bg-center rounded-full"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDkMTEe4NAtj6o7ZYiCQWQXVmSpaQMbIIV3v-QomJGlheCu0gU21q2WPyS751rxB8U5SniroD_bBa96ghTvDrrXgtf_IdcE4qIy2KcXh9oRN83DxVdMVnfrVFWlwIt2vqGAPMI9577cKpr9P_tHrIXuoRmKs5f-9IdlFZ2g8ICpdUSXaACE_US_PGmVD63hvNfbiAyKIiIoeJm53U68KQwNbRYFWjwlH3J0PSLZjGsXU9vVhgIJhfNIE51JNiuSXrjciqu0OCkoTPw');">
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold">
+                                C
+                            </div>
+                            <div class="flex-1 max-w-lg">
+                                <div class="bg-transparent p-4 rounded-lg">
+                                    <p class="text-sm text-text-main dark:text-gray-200">
+                                        Certainly. The skid rings are made of high-strength steel and have a load
+                                        capacity of 5,000 lbs each. Is there anything else you need to know?
+                                    </p>
+                                    <div class="mt-4">
+                                        <p class="text-sm font-medium text-success mb-1">AI Confidence: High (95%)</p>
+                                        <div class="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-700">
+                                            <div class="bg-success h-1.5 rounded-full" style="width: 95%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-wrap gap-2 mt-2">
+                                    <button
+                                        class="px-3 py-1.5 text-sm font-medium text-black bg-[#FAA61A] rounded-md hover:opacity-90">Satisfied</button>
+                                    <button
+                                        class="px-3 py-1.5 text-sm font-medium text-black bg-[#FAA61A] rounded-md hover:opacity-90">Report
+                                        issue</button>
+                                    <button
+                                        class="px-3 py-1.5 text-sm font-medium text-black bg-[#FAA61A] rounded-md hover:opacity-90">Suggest
+                                        Correction</button>
+                                    <button
+                                        class="px-3 py-1.5 text-sm font-medium text-black bg-[#FAA61A] rounded-md hover:opacity-90">Human
+                                        Assistance</button>
+                                    <button
+                                        class="px-3 py-1.5 text-sm font-medium text-black bg-[#FAA61A] rounded-md hover:opacity-90">Add
+                                        Knowledge</button>
+                                </div>
+                                <p class="text-xs text-text-muted dark:text-gray-500 mt-2 ml-4">Civilcast AI - 10:31 AM
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-auto pt-6">
+                        <div class="relative @container">
+                            <textarea
+                                class="w-full pl-4 pr-32 py-3 rounded-lg bg-background-light dark:bg-background-dark border border-gray-300 dark:border-gray-600 focus:ring-primary focus:border-primary resize-none text-sm text-text-main dark:text-white placeholder-text-muted dark:placeholder-gray-400"
+                                placeholder="Ask Civilcast..." rows="1"></textarea>
+                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                <button
+                                    class="p-2 rounded-full text-text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800">
+                                    <svg fill="currentColor" height="20" viewBox="0 0 256 256" width="20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Zm88-29.84q.06-2.16,0-4.32l14.92-18.64a8,8,0,0,0,1.48-7.06,107.21,107.21,0,0,0-10.88-26.25,8,8,0,0,0-6-3.93l-23.72-2.64q-1.48-1.56-3-3L186,40.54a8,8,0,0,0-3.94-6,107.71,107.71,0,0,0-26.25-10.87,8,8,0,0,0-7.06,1.49L130.16,40Q128,40,125.84,40L107.2,25.11a8,8,0,0,0-7.06-1.48A107.6,107.6,0,0,0,73.89,34.51a8,8,0,0,0-3.93,6L67.32,64.27q-1.56,1.49-3,3L40.54,70a8,8,0,0,0-6,3.94,107.71,107.71,0,0,0-10.87,26.25,8,8,0,0,0,1.49,7.06L40,125.84Q40,128,40,130.16L25.11,148.8a8,8,0,0,0-1.48,7.06,107.21,107.21,0,0,0,10.88,26.25,8,8,0,0,0,6,3.93l23.72,2.64q1.49,1.56,3,3L70,215.46a8,8,0,0,0,3.94,6,107.71,107.71,0,0,0,26.25,10.87,8,8,0,0,0,7.06-1.49L125.84,216q2.16.06,4.32,0l18.64,14.92a8,8,0,0,0,7.06,1.48,107.21,107.21,0,0,0,26.25-10.88,8,8,0,0,0,3.93-6l2.64-23.72q1.56-1.48,3-3L215.46,186a8,8,0,0,0,6-3.94,107.71,107.71,0,0,0,10.87-26.25,8,8,0,0,0-1.49-7.06Zm-16.1-6.5a73.93,73.93,0,0,1,0,8.68,8,8,0,0,0,1.74,5.48l14.19,17.73a91.57,91.57,0,0,1-6.23,15L187,173.11a8,8,0,0,0-5.1,2.64,74.11,74.11,0,0,1-6.14,6.14,8,8,0,0,0-2.64,5.1l-2.51,22.58a91.32,91.32,0,0,1-15,6.23l-17.74-14.19a8,8,0,0,0-5-1.75h-.48a73.93,73.93,0,0,1-8.68,0,8,8,0,0,0-5.48,1.74L100.45,215.8a91.57,91.57,0,0,1-15-6.23L82.89,187a8,8,0,0,0-2.64-5.1,74.11,74.11,0,0,1-6.14-6.14,8,8,0,0,0-5.1-2.64L46.43,170.6a91.32,91.32,0,0,1-6.23-15l14.19-17.74a8,8,0,0,0,1.74-5.48,73.93,73.93,0,0,1,0-8.68,8,8,0,0,0-1.74-5.48L40.2,100.45a91.57,91.57,0,0,1,6.23-15L69,82.89a8,8,0,0,0,5.1-2.64,74.11,74.11,0,0,1,6.14-6.14A8,8,0,0,0,82.89,69L85.4,46.43a91.32,91.32,0,0,1,15-6.23l17.74,14.19a8,8,0,0,0,5.48,1.74,73.93,73.93,0,0,1,8.68,0,8,8,0,0,0,5.48-1.74L155.55,40.2a91.57,91.57,0,0,1,15,6.23L173.11,69a8,8,0,0,0,2.64,5.1,74.11,74.11,0,0,1,6.14,6.14,8,8,0,0,0,5.1,2.64l22.58,2.51a91.32,91.32,0,0,1,6.23,15l-14.19,17.74A8,8,0,0,0,199.87,123.66Z">
+                                        </path>
+                                    </svg>
+                                </button>
+                                <button
+                                    class="hidden @[480px]:inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-text-main bg-primary rounded-lg hover:opacity-90">
+                                    Send
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>

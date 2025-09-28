@@ -41,21 +41,19 @@
         <header class="bg-black text-white">
             <div class="container mx-auto px-6">
                 <div class="flex items-center justify-between h-16">
-                    <div class="flex items-center gap-2">
+                    <div class="flex items-center gap-2.5">
+                        
                         <img class="h-9 w-9" src="../assets/favicon.png" alt="civilcast">
-
                         <h1 class="text-xl font-bold">Civilcast</h1>
                     </div>
-                    <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
-                        <a class="hover:text-primary transition-colors" href="AnalyticsDashboard.html">Analytics</a>
+                    
+                    <nav class="hidden md:flex items-center space-x-12 text-sm font-medium">
+                        <a class="hover:text-primary transition-colors" href="Analytics.html">Analytics</a>
 
-                        <a class="hover:text-primary transition-colors" href="ManageSpaces.html">Manage Spaces</a>
-                        <a class="hover:text-primary transition-colors" href="AISkillManagement.html">AI Skills</a>
+                        <a class="hover:text-primary transition-colors" href="Chat.html">Chat</a>
+                        <a class="hover:text-primary transition-colors" href="Department.html">Department</a>
+                        <a class="hover:text-primary transition-colors" href="Request.html">Requests</a>
                         <a class="text-primary" href="">Knowledge Base</a>
-                        <a class="hover:text-primary transition-colors" href="TeamManagement.html">Team</a>
-                        <a class="hover:text-primary transition-colors"
-                            href="IntegrationManagement.html">Integration</a>
-                        <a class="hover:text-primary transition-colors" href="SupportTicketHandling.html">Support</a>
                     </nav>
                     <div class="flex items-center gap-4">
                         <div class="relative w-72">
@@ -65,28 +63,28 @@
                                 class="w-full pl-10 pr-4 py-2 rounded-lg bg-white/10 border-transparent focus:border-primary focus:ring-primary text-white"
                                 placeholder="Search..." type="text" />
                         </div>
-                        <button class="relative p-2 rounded-full hover:bg-white/10">
+                        <button class="relative p-2 mt-2 rounded-full hover:bg-white/10">
                             <span class="material-symbols-outlined">notifications</span>
                             <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-primary rounded-full"></span>
                         </button>
                         <div class="relative inline-block">
                             <!-- Profile Icon -->
                             <div id="profileBtn" class="w-10 h-10 bg-cover rounded-full cursor-pointer"
-                                style="background-image: url('../assets/admin.png');">
+                                style="background-image: url('../assets/collaborator.png');">
                             </div>
 
                             <!-- Popup -->
                             <div id="profilePopup"
-                                class="hidden absolute right-0 mt-2 w-60 bg-white border rounded-lg shadow-lg p-4 z-50">
+                                class="hidden absolute right-0 mt-2 w-80 bg-white border rounded-lg shadow-lg p-4 z-50">
                                 <div class="flex items-center space-x-3">
                                     <img src="../assets/admin.png" class="w-10 h-10 rounded-full" />
                                     <div>
-                                        <p class="font-semibold text-black">John Doe</p>
-                                        <p class="text-sm text-gray-500">admin@civilcast.com</p>
+                                        <p class="font-semibold text-black">Steve Jones</p>
+                                        <p class="text-sm text-gray-500">collaborator@civilcast.com</p>
                                     </div>
                                 </div>
                                 <hr class="my-3">
-                                <p class="text-sm text-gray-700 pl-3">IT Admin</p>
+                                <p class="text-sm text-gray-700 pl-3">Collaborator</p>
                                 <a href="Settings.html">
                                     <button
                                         class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Settings</button>
