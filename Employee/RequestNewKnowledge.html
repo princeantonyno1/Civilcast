@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Civilcast - Add New Knowledge</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-color: #FAA61A;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .bg-primary {
+            background-color: var(--primary-color);
+        }
+        .text-primary {
+            color: var(--primary-color);
+        }
+        .border-primary {
+            border-color: var(--primary-color);
+        }
+        .ring-primary {
+            --tw-ring-color: var(--primary-color);
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: black;
+        }
+         .btn-primary:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <div class="flex flex-col min-h-screen">
+        <header class="bg-black text-white">
+            <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="w-8 h-8 text-white mr-3">
+                        <svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h1 class="text-xl font-bold">Civilcast</h1>
+                </div>
+                <div class="flex items-center">
+                    <nav class="hidden md:flex items-center gap-6">
+                        <a class="text-sm font-medium hover:text-primary" href="#">Chat</a>
+                        <a class="text-sm font-medium text-white" href="#">Add New Knowledge</a>
+                        <a class="text-sm font-medium hover:text-primary" href="#">Help</a>
+                    </nav>
+                    <div class="flex items-center gap-4 ml-6">
+                        <button class="p-2 rounded-full hover:bg-gray-800">
+                            <span class="material-symbols-outlined">
+                                notifications
+                            </span>
+                        </button>
+                        <div class="w-10 h-10 bg-cover bg-center rounded-full"
+                            style="background-image: url('https://lh3.googleusercontent.com/a/ACg8ocK_3-YwS3JDAyT0lA_Y2g_C_a-Y1-A=s96-c');">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="flex-1 bg-white">
+            <div class="container mx-auto px-6 py-8">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl font-bold text-black mb-2">Request New Knowledge</h2>
+                    <p class="text-gray-500 mb-8">Submit a request for new information to be added to the knowledge
+                        base.</p>
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1"
+                                for="knowledge-description">Describe the requested knowledge</label>
+                            <textarea
+                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
+                                id="knowledge-description" name="knowledge-description"
+                                placeholder="e.g., How to process a refund for a damaged product" rows="4"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1" for="knowledge-purpose">Purpose
+                                of the knowledge</label>
+                            <textarea
+                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
+                                id="knowledge-purpose" name="knowledge-purpose"
+                                placeholder="e.g., To streamline customer service and ensure consistent handling of refund requests."
+                                rows="3"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1" for="supporting-info">Supporting
+                                Information</label>
+                            <p class="text-sm text-gray-500 mb-2">Attach any relevant files, links, or documents.</p>
+                            <div class="flex items-center justify-center w-full">
+                                <label
+                                    class="flex flex-col items-center justify-center w-full h-48 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100"
+                                    for="dropzone-file">
+                                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                        <span class="material-symbols-outlined text-gray-400 mb-3"
+                                            style="font-size: 36px;">
+                                            cloud_upload
+                                        </span>
+                                        <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to
+                                                upload</span> or drag and drop</p>
+                                        <p class="text-xs text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                                    </div>
+                                    <input class="hidden" id="dropzone-file" type="file" />
+                                </label>
+                            </div>
+                        </div>
+                        <div class="flex justify-end gap-4 pt-4">
+                            <button
+                                class="px-6 py-2 text-sm font-medium text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300"
+                                type="button">
+                                Cancel
+                            </button>
+                            <button class="btn-primary px-6 py-2 text-sm font-medium rounded-md" type="submit">
+                                Submit Request
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>
