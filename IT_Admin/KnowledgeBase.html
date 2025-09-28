@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta charset="utf-8" />
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter:wght@400;500;700;900"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f9ad1f",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#231c0f",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <title>Civilcast - Knowledge Base</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark text-black dark:text-white">
+    <div class="flex flex-col h-screen">
+        <header class="bg-black text-white">
+            <div class="container mx-auto px-6">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-8 h-8 text-primary">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h1 class="text-xl font-bold">Civilcast</h1>
+                    </div>
+                    <nav class="hidden md:flex items-center gap-6 text-sm">
+                        <a class="text-white hover:text-primary" href="#">Request</a>
+                        <a class="text-white hover:text-primary" href="#">Knowledge Base</a>
+                        <a class="text-white hover:text-primary" href="AnalyticsDashboard.html">Analytics</a>
+                        <a class="text-white hover:text-primary" href="#">Add New Knowledge</a>
+                        <a class="text-white hover:text-primary" href="#">Chat</a>
+                        <a class="text-white hover:text-primary" href="#">Help</a>
+                    </nav>
+                    <div class="flex items-center gap-4">
+                        <div class="relative w-72">
+                            <span
+                                class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-white/50">search</span>
+                            <input
+                                class="w-full pl-10 pr-4 py-2 rounded-lg bg-white/10 border-transparent focus:border-primary focus:ring-primary text-white"
+                                placeholder="Search..." type="text" />
+                        </div>
+                        <button class="relative p-2 rounded-full hover:bg-white/10">
+                            <span class="material-symbols-outlined">notifications</span>
+                            <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-primary rounded-full"></span>
+                        </button>
+                        <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-9 h-9"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCEiP5_zdcF5EcCkeTybI5l3CiDFfv5fHWkd3E3BwGpReQ5xJQAgFNTCC0ahQfbP1odYPZJSrBz6dgwATxCtvl9_J0iKTYGCStcnUn7czvH8PgDakoU3nLbhOsNhV-LS9QidswJ-acHB7goRT4qof2yU8lWYPv2FOu5dHM-PqtSI8-u9G07yeKjhQA1S-oke1NTZo-n1jwtr6786TlnPVAlxYmWGC4-sUzhvPzBdCeUS6TLWvCBhr9T_wxjE4P1QPGkhluE1RO-qtg");'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="flex-1 overflow-y-auto p-8">
+            <div class="flex justify-between items-start mb-8">
+                <div>
+                    <h2 class="text-3xl font-bold">Knowledge Base</h2>
+                    <p class="text-black/60 dark:text-white/60 mt-1">Manage the quality and currency of the
+                        organizational knowledge used by the AI.</p>
+                </div>
+                <button class="bg-primary text-black font-bold py-2 px-4 rounded-lg flex items-center gap-2">
+                    <span class="material-symbols-outlined">upload_file</span>
+                    Upload New File
+                </button>
+            </div>
+            <div
+                class="bg-background-light dark:bg-background-dark rounded-xl border border-black/10 dark:border-white/10 overflow-hidden mb-8">
+                <div class="p-4 border-b border-black/10 dark:border-white/10">
+                    <h3 class="text-lg font-semibold">Current Files</h3>
+                </div>
+                <table class="w-full text-sm text-left">
+                    <thead class="bg-black/5 dark:bg-white/5">
+                        <tr>
+                            <th class="px-6 py-3 font-medium" scope="col">File Name</th>
+                            <th class="px-6 py-3 font-medium" scope="col">Space</th>
+                            <th class="px-6 py-3 font-medium" scope="col">Skills</th>
+                            <th class="px-6 py-3 font-medium" scope="col">Status</th>
+                            <th class="px-6 py-3 font-medium" scope="col">Last Updated</th>
+                            <th class="px-6 py-3 font-medium text-right" scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-black/10 dark:border-white/10">
+                            <td class="px-6 py-4 font-medium">Document 1.pdf</td>
+                            <td class="px-6 py-4 text-black/60 dark:text-white/60">Engineering</td>
+                            <td class="px-6 py-4 text-black/60 dark:text-white/60">Structural Analysis</td>
+                            <td class="px-6 py-4"><span
+                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/20 text-primary">Active</span>
+                            </td>
+                            <td class="px-6 py-4 text-black/60 dark:text-white/60">2024-01-15</td>
+                            <td class="px-6 py-4 text-right space-x-2">
+                                <button class="p-1 rounded-full hover:bg-black/10 dark:hover:bg-white/10"><span
+                                        class="material-symbols-outlined text-base">visibility</span></button>
+                                <button class="p-1 rounded-full hover:bg-black/10 dark:hover:bg-white/10"><span
+                                        class="material-symbols-outlined text-base">edit</span></button>
+                                <button class="p-1 rounded-full hover:bg-black/10 dark:hover:bg-white/10"><span
+                                        class="material-symbols-outlined text-base">toggle_off</span></button>
+                            </td>
+                        </tr>
+                        <tr class="border-b border-black/10 dark:border-white/10">
+                            <td class="px-6 py-4 font-medium">Manual 2.docx</td>
+                            <td class="px-6 py-4 text-black/60 dark:text-white/60">Operations</td>
+                            <td class="px-6 py-4 text-black/60 dark:text-white/60">Equipment Maintenance</td>
+                            <td class="px-6 py-4"><span
+                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/20 text-primary">Active</span>
+                            </td>
+                            <td class="px-6 py-4 text-black/60 dark:text-white/60">2023-12-20</td>
+                            <td class="px-6 py-4 text-right space-x-2">
+                                <button class="p-1 rounded-full hover:bg-black/10 dark:hover:bg-white/10"><span
+                                        class="material-symbols-outlined text-base">visibility</span></button>
+                                <button class="p-1 rounded-full hover:bg-black/10 dark:hover:bg-white/10"><span
+                                        class="material-symbols-outlined text-base">edit</span></button>
+                                <button class="p-1 rounded-full hover:bg-black/10 dark:hover:bg-white/10"><span
+                                        class="material-symbols-outlined text-base">toggle_off</span></button>
+                            </td>
+                        </tr>
+                        <tr class="border-b border-black/10 dark:border-white/10">
+                            <td class="px-6 py-4 font-medium">Standard 3.pdf</td>
+                            <td class="px-6 py-4 text-black/60 dark:text-white/60">Quality Assurance</td>
+                            <td class="px-6 py-4 text-black/60 dark:text-white/60">Inspection Procedures</td>
+                            <td class="px-6 py-4"><span
+                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/20 text-primary">Active</span>
+                            </td>
+                            <td class="px-6 py-4 text-black/60 dark:text-white/60">2024-02-05</td>
+                            <td class="px-6 py-4 text-right space-x-2">
+                                <button class="p-1 rounded-full hover:bg-black/10 dark:hover:bg-white/10"><span
+                                        class="material-symbols-outlined text-base">visibility</span></button>
+                                <button class="p-1 rounded-full hover:bg-black/10 dark:hover:bg-white/10"><span
+                                        class="material-symbols-outlined text-base">edit</span></button>
+                                <button class="p-1 rounded-full hover:bg-black/10 dark:hover:bg-white/10"><span
+                                        class="material-symbols-outlined text-base">toggle_off</span></button>
+                            </td>
+                        </tr>
+                        <tr class="border-b border-black/10 dark:border-white/10">
+                            <td class="px-6 py-4 font-medium">Outdated Report.pdf</td>
+                            <td class="px-6 py-4 text-black/60 dark:text-white/60">Research</td>
+                            <td class="px-6 py-4 text-black/60 dark:text-white/60">Market Analysis</td>
+                            <td class="px-6 py-4"><span
+                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-black/10 dark:bg-white/10 text-black/60 dark:text-white/60">Inactive</span>
+                            </td>
+                            <td class="px-6 py-4 text-black/60 dark:text-white/60">2023-10-10</td>
+                            <td class="px-6 py-4 text-right space-x-2">
+                                <button class="p-1 rounded-full hover:bg-black/10 dark:hover:bg-white/10"><span
+                                        class="material-symbols-outlined text-base">visibility</span></button>
+                                <button class="p-1 rounded-full hover:bg-black/10 dark:hover:bg-white/10"><span
+                                        class="material-symbols-outlined text-base">toggle_on</span></button>
+                                <button class="p-1 rounded-full hover:bg-black/10 dark:hover:bg-white/10"><span
+                                        class="material-symbols-outlined text-base text-red-500">delete</span></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium">Archived Data.docx</td>
+                            <td class="px-6 py-4 text-black/60 dark:text-white/60">Finance</td>
+                            <td class="px-6 py-4 text-black/60 dark:text-white/60">Budgeting</td>
+                            <td class="px-6 py-4"><span
+                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-black/10 dark:bg-white/10 text-black/60 dark:text-white/60">Inactive</span>
+                            </td>
+                            <td class="px-6 py-4 text-black/60 dark:text-white/60">2023-08-25</td>
+                            <td class="px-6 py-4 text-right space-x-2">
+                                <button class="p-1 rounded-full hover:bg-black/10 dark:hover:bg-white/10"><span
+                                        class="material-symbols-outlined text-base">visibility</span></button>
+                                <button class="p-1 rounded-full hover:bg-black/10 dark:hover:bg-white/10"><span
+                                        class="material-symbols-outlined text-base">toggle_on</span></button>
+                                <button class="p-1 rounded-full hover:bg-black/10 dark:hover:bg-white/10"><span
+                                        class="material-symbols-outlined text-base text-red-500">delete</span></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div
+                class="bg-background-light dark:bg-background-dark rounded-xl border border-black/10 dark:border-white/10 overflow-hidden">
+                <div class="p-4 border-b border-black/10 dark:border-white/10">
+                    <h3 class="text-lg font-semibold">Version History</h3>
+                </div>
+                <table class="w-full text-sm text-left">
+                    <thead class="bg-black/5 dark:bg-white/5">
+                        <tr>
+                            <th class="px-6 py-3 font-medium" scope="col">File Name</th>
+                            <th class="px-6 py-3 font-medium" scope="col">Version</th>
+                            <th class="px-6 py-3 font-medium" scope="col">Uploaded By</th>
+                            <th class="px-6 py-3 font-medium" scope="col">Upload Date</th>
+                            <th class="px-6 py-3 font-medium text-right" scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-black/10 dark:border-white/10">
+                            <td class="px-6 py-4 font-medium">Document 1.pdf</td>
+                            <td class="px-6 py-4 text-black/60 dark:text-white/60">v1.1</td>
+                            <td class="px-6 py-4 text-black/60 dark:text-white/60">Sarah Carter</td>
+                            <td class="px-6 py-4 text-black/60 dark:text-white/60">2024-01-15</td>
+                            <td class="px-6 py-4 text-right">
+                                <button class="p-1 rounded-full hover:bg-black/10 dark:hover:bg-white/10"><span
+                                        class="material-symbols-outlined text-base">visibility</span></button>
+                            </td>
+                        </tr>
+                        <tr class="border-b border-black/10 dark:border-white/10">
+                            <td class="px-6 py-4 font-medium">Document 1.pdf</td>
+                            <td class="px-6 py-4 text-black/60 dark:text-white/60">v1.0</td>
+                            <td class="px-6 py-4 text-black/60 dark:text-white/60">Alex Bennett</td>
+                            <td class="px-6 py-4 text-black/60 dark:text-white/60">2023-12-15</td>
+                            <td class="px-6 py-4 text-right">
+                                <button class="p-1 rounded-full hover:bg-black/10 dark:hover:bg-white/10"><span
+                                        class="material-symbols-outlined text-base">visibility</span></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium">Manual 2.docx</td>
+                            <td class="px-6 py-4 text-black/60 dark:text-white/60">v2.0</td>
+                            <td class="px-6 py-4 text-black/60 dark:text-white/60">David Lee</td>
+                            <td class="px-6 py-4 text-black/60 dark:text-white/60">2023-12-20</td>
+                            <td class="px-6 py-4 text-right">
+                                <button class="p-1 rounded-full hover:bg-black/10 dark:hover:bg-white/10"><span
+                                        class="material-symbols-outlined text-base">visibility</span></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>

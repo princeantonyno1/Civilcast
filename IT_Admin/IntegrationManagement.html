@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Civilcast - Integration Management</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FAA61A", // Yellow
+                        "background-light": "#ffffff", // White
+                        "background-dark": "#1a1a1a",
+                        "top-nav-light": "#000000", // Black
+                        "top-nav-dark": "#000000", // Black
+                        "text-main": "#000000", // Black
+                        "text-light": "#ffffff", // White
+                        "text-muted": "#6b7280",
+                        "success": "#22c55e", // Green
+                        "danger": "#ef4444", // Red
+                        "warning": "#f59e0b", // Amber
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light font-display text-text-main">
+    <div class="flex flex-col min-h-screen">
+        <header class="flex items-center justify-between px-6 py-3 bg-top-nav-light text-text-light">
+            <div class="flex items-center gap-8">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 text-white">
+                        <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z"
+                                fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <h1 class="text-xl font-bold">Civilcast</h1>
+                </div>
+            </div>
+            <div class="flex items-center gap-6">
+                <div class="flex items-center gap-4 ml-6">
+                    <button class="p-2 rounded-full hover:bg-primary/20">
+                        <span class="material-symbols-outlined">notifications</span>
+                    </button>
+                    <div class="w-10 h-10 bg-cover bg-center rounded-full"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDkMTEe4NAtj6o7ZYiCQWQXVmSpaQMbIIV3v-QomJGlheCu0gU21q2WPyS751rxB8U5SniroD_bBa96ghTvDrrXgtf_IdcE4qIy2KcXh9oRN83DxVdMVnfrVFWlwIt2vqGAPMI9577cKpr9P_tHrIXuoRmKs5f-9IdlFZ2g8ICpdUSXaACE_US_PGmVD63hvNfbiAyKIiIoeJm53U68KQwNbRYFWjwlH3J0PSLZjGsXU9vVhgIJhfNIE51JNiuSXrjciqu0OCkoTPw');">
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="flex-1 flex flex-col">
+            <div class="bg-black text-white">
+                <div class="container mx-auto px-6">
+                    <nav class="flex justify-between items-center py-3">
+                        <div class="flex items-center gap-6">
+                            <a class="text-sm font-medium hover:text-primary" href="#">Request</a>
+                            <a class="text-sm font-medium hover:text-primary" href="#">Knowledge Base</a>
+                            <a class="text-sm font-medium hover:text-primary" href="#">Analytics</a>
+                            <a class="text-sm font-medium hover:text-primary" href="#">Add New Knowledge</a>
+                            <a class="text-sm font-medium hover:text-primary" href="#">Chat</a>
+                            <a class="text-sm font-medium hover:text-primary" href="#">Help</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <main class="flex-1 bg-background-light p-6">
+                <div class="container mx-auto">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold text-text-main">Integration Management</h2>
+                        <button
+                            class="bg-primary text-black px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 hover:opacity-90">
+                            <span class="material-symbols-outlined text-base">add</span>
+                            New Integration
+                        </button>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-lg shadow-sm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+                            <div class="border border-gray-200 rounded-lg p-4 flex flex-col">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="flex items-center gap-3">
+                                        <span class="material-symbols-outlined text-3xl text-gray-500">factory</span>
+                                        <h3 class="text-lg font-semibold text-text-main">ERP System</h3>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span
+                                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-success/20 text-success">
+                                            <span class="w-2 h-2 mr-1.5 bg-success rounded-full"></span>
+                                            Active
+                                        </span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-text-muted mb-4 flex-grow">Connects to your Enterprise Resource
+                                    Planning system for seamless data synchronization.</p>
+                                <div class="flex items-center justify-between mt-auto">
+                                    <span class="text-xs text-text-muted">Last sync: 5m ago</span>
+                                    <div class="flex gap-2">
+                                        <button class="p-2 rounded-md hover:bg-gray-100 text-text-muted">
+                                            <span class="material-symbols-outlined text-xl">settings</span>
+                                        </button>
+                                        <button class="p-2 rounded-md hover:bg-gray-100 text-danger">
+                                            <span class="material-symbols-outlined text-xl">link_off</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4 flex flex-col">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="flex items-center gap-3">
+                                        <span class="material-symbols-outlined text-3xl text-gray-500">groups</span>
+                                        <h3 class="text-lg font-semibold text-text-main">CRM Platform</h3>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span
+                                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-warning/20 text-warning">
+                                            <span class="w-2 h-2 mr-1.5 bg-warning rounded-full"></span>
+                                            Warning
+                                        </span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-text-muted mb-4 flex-grow">Integrate with your Customer
+                                    Relationship Management tool to manage contacts and leads.</p>
+                                <div class="flex items-center justify-between mt-auto">
+                                    <span class="text-xs text-text-muted">API key expired</span>
+                                    <div class="flex gap-2">
+                                        <button class="p-2 rounded-md hover:bg-gray-100 text-text-muted">
+                                            <span class="material-symbols-outlined text-xl">settings</span>
+                                        </button>
+                                        <button class="p-2 rounded-md hover:bg-gray-100 text-danger">
+                                            <span class="material-symbols-outlined text-xl">link_off</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4 flex flex-col">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="flex items-center gap-3">
+                                        <span
+                                            class="material-symbols-outlined text-3xl text-gray-500">cloud_upload</span>
+                                        <h3 class="text-lg font-semibold text-text-main">Cloud Storage</h3>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span
+                                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-200 text-gray-600">
+                                            <span class="w-2 h-2 mr-1.5 bg-gray-400 rounded-full"></span>
+                                            Disabled
+                                        </span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-text-muted mb-4 flex-grow">Link to cloud storage providers for
+                                    file management and sharing across platforms.</p>
+                                <div class="flex items-center justify-end mt-auto">
+                                    <button
+                                        class="bg-primary text-black px-3 py-1.5 rounded-md text-sm font-medium hover:opacity-90">Enable</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h3 class="text-xl font-bold text-text-main mb-4">Configure Integration</h3>
+                        <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-text-main mb-1"
+                                        for="integration-type">Integration Type</label>
+                                    <select
+                                        class="w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary text-sm"
+                                        id="integration-type">
+                                        <option>ERP System</option>
+                                        <option>CRM Platform</option>
+                                        <option>Cloud Storage</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-text-main mb-1" for="api-endpoint">API
+                                        Endpoint</label>
+                                    <input
+                                        class="w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary text-sm"
+                                        id="api-endpoint" placeholder="https://api.example.com/v1" type="text" />
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label class="block text-sm font-medium text-text-main mb-1" for="api-key">API Key /
+                                        Credentials</label>
+                                    <input
+                                        class="w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary text-sm"
+                                        id="api-key" type="password" value="************" />
+                                </div>
+                            </div>
+                            <div class="mt-6 flex justify-end gap-4">
+                                <button
+                                    class="bg-primary text-black px-4 py-2 rounded-lg text-sm font-medium hover:opacity-90">Test
+                                    Connection</button>
+                                <button
+                                    class="bg-primary text-black px-4 py-2 rounded-lg text-sm font-medium hover:opacity-90">Save
+                                    Configuration</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+</body>
+
+</html>

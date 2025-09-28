@@ -1,0 +1,134 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    /* prevents vertical scroll */
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+
+}
+
+/* Left Part */
+.left-part {
+    flex: 1;
+    background: #f5f5f5;
+}
+
+.left-part img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Right Part */
+.right-part {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+}
+
+.login-box {
+    max-width: 350px;
+    width: 100%;
+    text-align: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.logo img {
+    width: 20rem;
+}
+
+.logo h1 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #1f1f5c;
+}
+
+h2 {
+    margin: 20px 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Microsoft Button */
+.microsoft-btn {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.microsoft-btn img {
+    width: 20px;
+}
+
+/* Divider */
+/* .divider {
+    margin: 20px 0;
+    border-top: 1px solid #eee;
+} */
+
+/* Inputs */
+form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.password-field {
+    position: relative;
+}
+
+.forget-password {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    font-size: 12px;
+    color: #f1b400;
+    text-decoration: none;
+}
+
+/* Login Button */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: #f1b400;
+    border: none;
+    border-radius: 6px;
+    color: #000;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.support {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #666;
+}
