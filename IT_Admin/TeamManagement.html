@@ -57,61 +57,69 @@
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="flex h-16 items-center justify-between">
                     <div class="flex items-center gap-2">
-                                                <img class="h-9 w-9" src="../assets/favicon.png" alt="civilcast">
+                        <img class="h-9 w-9" src="../assets/favicon.png" alt="civilcast">
 
                         <h1 class="text-xl font-bold text-content-dark">Civilcast</h1>
                     </div>
                     <div class="hidden md:block ">
                         <nav class="hidden md:flex items-center space-x-8 text-sm text-white font-medium">
-                        <a class="hover:text-primary transition-colors" href="AnalyticsDashboard.html">Analytics</a>
+                            <a class="hover:text-primary transition-colors" href="AnalyticsDashboard.html">Analytics</a>
 
-                        <a class="hover:text-primary transition-colors" href="ManageSpaces.html">Manage Spaces</a>
-                        <a class="hover:text-primary transition-colors" href="AISkillManagement.html">AI Skills</a>
-                        <a class="hover:text-primary transition-colors" href="KnowledgeBase.html">Knowledge Base</a>
-                        <a class="text-primary" href="">Team</a>
-                        <a class="hover:text-primary transition-colors" href="IntegrationManagement.html">Integration</a>
-                        <a class="hover:text-primary transition-colors" href="SupportTicketHandling.html">Support</a>
-                    </nav>
+                            <a class="hover:text-primary transition-colors" href="ManageSpaces.html">Manage Spaces</a>
+                            <a class="hover:text-primary transition-colors" href="AISkillManagement.html">AI Skills</a>
+                            <a class="hover:text-primary transition-colors" href="KnowledgeBase.html">Knowledge Base</a>
+                            <a class="text-primary" href="">Team</a>
+                            <a class="hover:text-primary transition-colors"
+                                href="IntegrationManagement.html">Integration</a>
+                            <a class="hover:text-primary transition-colors"
+                                href="SupportTicketHandling.html">Support</a>
+                        </nav>
                     </div>
                     <div class="flex items-center">
                         <div class="ml-4 flex items-center md:ml-6">
                             <div class="relative inline-block">
-                            <!-- Profile Icon -->
-                            <div id="profileBtn" class="w-10 h-10 bg-cover rounded-full cursor-pointer"
-                                style="background-image: url('../assets/admin.png');">
-                            </div>
-
-                            <!-- Popup -->
-                            <div id="profilePopup"
-                                class="hidden absolute right-0 mt-2 w-60 bg-white border rounded-lg shadow-lg p-4 z-50">
-                                <div class="flex items-center space-x-3">
-                                    <img src="../assets/admin.png" class="w-10 h-10 rounded-full" />
-                                    <div>
-                                        <p class="font-semibold text-black">John Doe</p>
-                                        <p class="text-sm text-gray-500">admin@civilcast.com</p>
-                                    </div>
+                                <!-- Profile Icon -->
+                                <div id="profileBtn" class="w-10 h-10 bg-cover rounded-full cursor-pointer"
+                                    style="background-image: url('../assets/admin.png');">
                                 </div>
-                                <hr class="my-3">
-                                <p class="text-sm text-gray-700 pl-3">IT Admin</p>
-                                <a href="Settings.html">
-                                <button  class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Settings</button>
-                                </a>
+
+                                <!-- Popup -->
+                                <div id="profilePopup"
+                                    class="hidden absolute right-0 mt-2 w-60 bg-white border rounded-lg shadow-lg p-4 z-50">
+                                    <div class="flex items-center space-x-3">
+                                        <img src="../assets/admin.png" class="w-10 h-10 rounded-full" />
+                                        <div>
+                                            <p class="font-semibold text-black">John Doe</p>
+                                            <p class="text-sm text-gray-500">admin@civilcast.com</p>
+                                        </div>
+                                    </div>
+                                    <hr class="my-3">
+                                    <p class="text-sm text-gray-700 pl-3">IT Admin</p>
+                                    <a href="Settings.html">
+                                        <button
+                                            class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Settings</button>
+                                    </a>
+                                    <a href="../index.html">
+                                        <button
+                                            class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Log
+                                            out</button>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
 
-                        <script>
-                            const btn = document.getElementById("profileBtn");
-                            const popup = document.getElementById("profilePopup");
+                            <script>
+                                const btn = document.getElementById("profileBtn");
+                                const popup = document.getElementById("profilePopup");
 
-                            btn.addEventListener("click", () => {
-                                popup.classList.toggle("hidden");
-                            });
-                            document.addEventListener("click", (e) => {
-                                if (!btn.contains(e.target) && !popup.contains(e.target)) {
-                                    popup.classList.add("hidden");
-                                }
-                            });
-                        </script>
+                                btn.addEventListener("click", () => {
+                                    popup.classList.toggle("hidden");
+                                });
+                                document.addEventListener("click", (e) => {
+                                    if (!btn.contains(e.target) && !popup.contains(e.target)) {
+                                        popup.classList.add("hidden");
+                                    }
+                                });
+                            </script>
                         </div>
                     </div>
                 </div>

@@ -16,7 +16,7 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#facc15", // Yellow
+                        "primary": "#FAA61A", // Yellow
                         "background-light": "#ffffff", // White
                         "background-dark": "#1a1a1a", // Dark gray for dark mode
                         "sidebar-light": "#f5f5f5", // Light gray
@@ -56,27 +56,19 @@
         <header class="flex items-center justify-between px-6 py-3 bg-top-nav-light dark:bg-top-nav-dark text-white">
             <div class="flex items-center gap-8">
                 <div class="flex items-center gap-3 bg-black px-3 py-1 rounded-md">
-                    <div class="w-8 h-8 text-white">
-                        <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z"
-                                fill="currentColor"></path>
-                        </svg>
-                    </div>
+                    
+                    <img class="h-9 w-9" src="../assets/favicon.png" alt="civilcast">
                     <h1 class="text-xl font-bold text-white">Civilcast</h1>
                 </div>
             </div>
             <div class="flex items-center gap-6">
-                <nav class="hidden md:flex items-center gap-6">
-                    <a class="text-sm font-medium text-white hover:text-primary" href="#">Request</a>
-                    <a class="text-sm font-medium text-white hover:text-primary" href="#">Knowledge Base</a>
-                    <a class="text-sm font-medium text-white hover:text-primary" href="#">Analytics</a>
-                    <a class="text-sm font-medium text-white hover:text-primary" href="#">Add New Knowledge</a>
-                    <a class="text-sm font-medium text-white hover:text-primary" href="#">Chat</a>
-                    <a class="text-sm font-medium text-white hover:text-primary" href="#">Help</a>
+                <nav class="hidden md:flex items-center space-x-12 text-sm font-medium">
+
+                    <a class="text-primary" href="">Chat</a>
+                    <a class="hover:text-primary transition-colors" href="RequestNewKnowledge.html">Request new knowledge</a>
                 </nav>
                 <div class="flex items-center gap-4 ml-6">
-                    <button class="p-2 rounded-full hover:bg-primary/20 text-gray-300">
+                    <button class="p-2 mt-1.5 rounded-full hover:bg-primary/20 text-gray-300">
                         <svg fill="currentColor" height="20" viewBox="0 0 256 256" width="20"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -84,9 +76,48 @@
                             </path>
                         </svg>
                     </button>
-                    <div class="w-10 h-10 bg-cover bg-center rounded-full"
-                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDkMTEe4NAtj6o7ZYiCQWQXVmSpaQMbIIV3v-QomJGlheCu0gU21q2WPyS751rxB8U5SniroD_bBa96ghTvDrrXgtf_IdcE4qIy2KcXh9oRN83DxVdMVnfrVFWlwIt2vqGAPMI9577cKpr9P_tHrIXuoRmKs5f-9IdlFZ2g8ICpdUSXaACE_US_PGmVD63hvNfbiAyKIiIoeJm53U68KQwNbRYFWjwlH3J0PSLZjGsXU9vVhgIJhfNIE51JNiuSXrjciqu0OCkoTPw');">
+                    <div class="relative inline-block">
+                        <!-- Profile Icon -->
+                        <div id="profileBtn" class="w-10 h-10 bg-cover rounded-full cursor-pointer"
+                            style="background-image: url('../assets/employee.png');">
+                        </div>
+
+                        <!-- Popup -->
+                        <div id="profilePopup"
+                            class="hidden absolute right-0 mt-2 w-80 bg-white border rounded-lg shadow-lg p-4 z-50">
+                            <div class="flex items-center space-x-3">
+                                <img src="../assets/employee.png" class="w-10 h-10 rounded-full" />
+                                <div>
+                                    <p class="font-semibold text-black">Alex Samuel</p>
+                                    <p class="text-sm text-gray-500">employee@civilcast.com</p>
+                                </div>
+                            </div>
+                            <hr class="my-3">
+                            <p class="text-sm text-gray-700 pl-3">Employee</p>
+                            <a href="Settings.html">
+                                <button
+                                    class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Settings</button>
+                            </a>
+                            <a href="../index.html">
+                                <button
+                                    class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Log out</button>
+                            </a>
+                        </div>
                     </div>
+
+                    <script>
+                        const btn = document.getElementById("profileBtn");
+                        const popup = document.getElementById("profilePopup");
+
+                        btn.addEventListener("click", () => {
+                            popup.classList.toggle("hidden");
+                        });
+                        document.addEventListener("click", (e) => {
+                            if (!btn.contains(e.target) && !popup.contains(e.target)) {
+                                popup.classList.add("hidden");
+                            }
+                        });
+                    </script>
                 </div>
             </div>
         </header>
@@ -154,8 +185,7 @@
                             <div class="flex-1 max-w-lg text-right">
                                 <div class="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg inline-block text-left">
                                     <p class="text-sm text-gray-800 dark:text-gray-200">
-                                        Hi there, can you please clarify the specifications for the skid rings? I need
-                                        to know the material and the load capacity.
+                                        Clarify the specifications for the skid rings
                                     </p>
                                 </div>
                                 <p class="text-xs text-text-muted dark:text-gray-500 mt-1">John Doe - 10:30 AM</p>
@@ -184,18 +214,18 @@
                                 </div>
                                 <div class="flex flex-wrap gap-2 mt-2">
                                     <button
-                                        class="px-3 py-1.5 text-sm font-medium text-black bg-[#FAA61A] rounded-md hover:opacity-90">Satisfied</button>
+                                        class="px-3 py-1.5 text-sm font-medium text-black bg-sidebar-light rounded-md hover:opacity-90">Satisfied</button>
                                     <button
-                                        class="px-3 py-1.5 text-sm font-medium text-black bg-[#FAA61A] rounded-md hover:opacity-90">Report
+                                        class="px-3 py-1.5 text-sm font-medium text-black bg-sidebar-light  rounded-md hover:opacity-90">Report
                                         issue</button>
                                     <button
-                                        class="px-3 py-1.5 text-sm font-medium text-black bg-[#FAA61A] rounded-md hover:opacity-90">Suggest
+                                        class="px-3 py-1.5 text-sm font-medium text-black bg-sidebar-light  rounded-md hover:opacity-90">Suggest
                                         Correction</button>
                                     <button
-                                        class="px-3 py-1.5 text-sm font-medium text-black bg-[#FAA61A] rounded-md hover:opacity-90">Human
+                                        class="px-3 py-1.5 text-sm font-medium text-black bg-sidebar-light  rounded-md hover:opacity-90">Human
                                         Assistance</button>
                                     <button
-                                        class="px-3 py-1.5 text-sm font-medium text-black bg-[#FAA61A] rounded-md hover:opacity-90">Add
+                                        class="px-3 py-1.5 text-sm font-medium text-black bg-sidebar-light  rounded-md hover:opacity-90">Add
                                         Knowledge</button>
                                 </div>
                                 <p class="text-xs text-text-muted dark:text-gray-500 mt-2 ml-4">Civilcast AI - 10:31 AM

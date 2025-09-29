@@ -46,7 +46,7 @@
 
 <body class="bg-background-light dark:bg-background-dark font-display">
     <div class="flex h-screen flex-col">
-        <header class="flex items-center justify-between bg-black px-6 py-3 text-white">
+        <header class="flex items-center justify-between bg-black px-6 py-1 text-white">
             <div class="flex items-center gap-3">
 
                 <img class="h-9 w-9" src="../assets/favicon.png" alt="civilcast">
@@ -67,43 +67,47 @@
                     <span class="material-symbols-outlined">notifications</span>
                 </button>
                 <div class="relative inline-block">
-                            <!-- Profile Icon -->
-                            <div id="profileBtn" class="w-10 h-10 bg-cover rounded-full cursor-pointer"
-                                style="background-image: url('../assets/collaborator.png');">
-                            </div>
+                    <!-- Profile Icon -->
+                    <div id="profileBtn" class="w-10 h-10 bg-cover rounded-full cursor-pointer"
+                        style="background-image: url('../assets/collaborator.png');">
+                    </div>
 
-                            <!-- Popup -->
-                            <div id="profilePopup"
-                                class="hidden absolute right-0 mt-2 w-80 bg-white border rounded-lg shadow-lg p-4 z-50">
-                                <div class="flex items-center space-x-3">
-                                    <img src="../assets/admin.png" class="w-10 h-10 rounded-full" />
-                                    <div>
-                                        <p class="font-semibold text-black">Steve Jones</p>
-                                        <p class="text-sm text-gray-500">collaborator@civilcast.com</p>
-                                    </div>
-                                </div>
-                                <hr class="my-3">
-                                <p class="text-sm text-gray-700 pl-3">Collaborator</p>
-                                <a href="Settings.html">
-                                    <button
-                                        class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Settings</button>
-                                </a>
+                    <!-- Popup -->
+                    <div id="profilePopup"
+                        class="hidden absolute right-0 mt-2 w-80 bg-white border rounded-lg shadow-lg p-4 z-50">
+                        <div class="flex items-center space-x-3">
+                            <img src="../assets/admin.png" class="w-10 h-10 rounded-full" />
+                            <div>
+                                <p class="font-semibold text-black">Steve Jones</p>
+                                <p class="text-sm text-gray-500">collaborator@civilcast.com</p>
                             </div>
                         </div>
+                        <hr class="my-3">
+                        <p class="text-sm text-gray-700 pl-3">Collaborator</p>
+                        <a href="Settings.html">
+                            <button
+                                class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Settings</button>
+                        </a>
+                        <a href="../index.html">
+                            <button class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Log
+                                out</button>
+                        </a>
+                    </div>
+                </div>
 
-                        <script>
-                            const btn = document.getElementById("profileBtn");
-                            const popup = document.getElementById("profilePopup");
+                <script>
+                    const btn = document.getElementById("profileBtn");
+                    const popup = document.getElementById("profilePopup");
 
-                            btn.addEventListener("click", () => {
-                                popup.classList.toggle("hidden");
-                            });
-                            document.addEventListener("click", (e) => {
-                                if (!btn.contains(e.target) && !popup.contains(e.target)) {
-                                    popup.classList.add("hidden");
-                                }
-                            });
-                        </script>
+                    btn.addEventListener("click", () => {
+                        popup.classList.toggle("hidden");
+                    });
+                    document.addEventListener("click", (e) => {
+                        if (!btn.contains(e.target) && !popup.contains(e.target)) {
+                            popup.classList.add("hidden");
+                        }
+                    });
+                </script>
             </div>
         </header>
         <main class="flex-1 overflow-y-auto p-8">
@@ -116,10 +120,10 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
                 <div
-                    class="bg-background-light dark:bg-background-dark border border-primary/20 dark:border-primary/30 rounded-lg p-6">
-                    <h3 class="text-lg font-semibold text-black dark:text-white">Satisfied</h3>
-                    <p class="text-4xl font-bold text-primary mt-2">12</p>
-                    <p class="text-sm text-black/60 dark:text-white/60 mt-1">Total requests satisfied</p>
+                    class="bg-primary dark:bg-background-dark border border-primary/20 dark:border-primary/30 rounded-lg p-6">
+                    <h3 class="text-lg font-semibold text-black dark:black">Satisfied</h3>
+                    <p class="text-4xl font-bold text-black mt-2">12</p>
+                    <p class="text-sm text-black/80 dark:text-black/60  mt-1">Total requests satisfied</p>
                 </div>
                 <div
                     class="bg-background-light dark:bg-background-dark border border-primary/20 dark:border-primary/30 rounded-lg p-6">

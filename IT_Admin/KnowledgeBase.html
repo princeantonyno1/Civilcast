@@ -46,7 +46,7 @@
 
                         <h1 class="text-xl font-bold">Civilcast</h1>
                     </div>
-                    <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                    <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
                         <a class="hover:text-primary transition-colors" href="AnalyticsDashboard.html">Analytics</a>
 
                         <a class="hover:text-primary transition-colors" href="ManageSpaces.html">Manage Spaces</a>
@@ -58,13 +58,13 @@
                         <a class="hover:text-primary transition-colors" href="SupportTicketHandling.html">Support</a>
                     </nav>
                     <div class="flex items-center gap-4">
-                        <div class="relative w-72">
+                        <!-- <div class="relative w-72">
                             <span
                                 class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-white/50">search</span>
                             <input
                                 class="w-full pl-10 pr-4 py-2 rounded-lg bg-white/10 border-transparent focus:border-primary focus:ring-primary text-white"
                                 placeholder="Search..." type="text" />
-                        </div>
+                        </div> -->
                         <button class="relative p-2 rounded-full hover:bg-white/10">
                             <span class="material-symbols-outlined">notifications</span>
                             <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-primary rounded-full"></span>
@@ -90,6 +90,11 @@
                                 <a href="Settings.html">
                                     <button
                                         class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Settings</button>
+                                </a>
+                                <a href="../index.html">
+                                    <button
+                                        class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Log
+                                        out</button>
                                 </a>
                             </div>
                         </div>
@@ -118,7 +123,8 @@
                     <p class="text-black/60 dark:text-white/60 mt-1">Manage the quality and currency of the
                         organizational knowledge used by the AI.</p>
                 </div>
-                <button class="bg-primary text-black font-bold py-2 px-4 rounded-lg flex items-center gap-2">
+                <button id="openUploadDialog"
+                    class="bg-primary text-black font-bold py-2 px-4 rounded-lg flex items-center gap-2">
                     <span class="material-symbols-outlined">upload_file</span>
                     Upload New File
                 </button>
@@ -279,6 +285,101 @@
             </div>
         </main>
     </div>
+    <dialog id="uploadDialog" class="bg-transparent backdrop:bg-black/30 backdrop:backdrop-blur-sm">
+        <div
+            class="bg-background-light dark:bg-background-dark text-[#1c170d] dark:text-background-light rounded-xl shadow-2xl w-full">
+            <div class="p-6 border-b border-primary/20 dark:border-primary/30">
+                <h2 class="text-xl font-bold">Add Knowledge Base File</h2>
+                <p class="text-sm text-primary/80 dark:text-primary/70 mt-1">Fill in the details below to add a new file
+                    to the knowledge base.</p>
+            </div>
+            <div class="p-6 space-y-6">
+                <div
+                    class="flex flex-col items-center justify-center w-full p-6 border-2 border-dashed border-primary/40 rounded-lg bg-primary/10 dark:bg-primary/20">
+                    <span class="material-symbols-outlined text-4xl text-primary">cloud_upload</span>
+                    <p class="mt-2 text-sm text-primary/90 dark:text-primary/80">
+                        <span class="font-semibold">Click to upload</span> or drag and drop
+                    </p>
+                    <p class="text-xs text-primary/70 dark:text-primary/60">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                    <input class="sr-only" id="file-upload" name="file-upload" type="file" />
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-[#1c170d] dark:text-background-light pb-2"
+                            for="file-name">File Name</label>
+                        <input
+                            class="w-full bg-background-light dark:bg-background-dark border border-primary/30 dark:border-primary/40 text-[#1c170d] dark:text-background-light placeholder:text-primary/50 dark:placeholder:text-primary/40 focus:ring-primary focus:border-primary rounded-lg text-sm p-3"
+                            id="file-name" placeholder="e.g., Q3_Financial_Report.pdf" type="text" />
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-[#1c170d] dark:text-background-light pb-2"
+                            for="department">Department</label>
+                        <select
+                            class="form-select w-full appearance-none bg-background-light dark:bg-background-dark border border-primary/30 dark:border-primary/40 text-[#1c170d] dark:text-background-light focus:ring-primary focus:border-primary rounded-lg text-sm p-3"
+                            id="department">
+                            <option>Select department</option>
+                            <option>Engineering</option>
+                            <option>Marketing</option>
+                            <option>Sales</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-[#1c170d] dark:text-background-light pb-2"
+                        for="tags">Tags</label>
+                    <input
+                        class="w-full bg-background-light dark:bg-background-dark border border-primary/30 dark:border-primary/40 text-[#1c170d] dark:text-background-light placeholder:text-primary/50 dark:placeholder:text-primary/40 focus:ring-primary focus:border-primary rounded-lg text-sm p-3"
+                        id="tags" placeholder="Add tags separated by commas" type="text" />
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-[#1c170d] dark:text-background-light pb-2"
+                        for="description">Description</label>
+                    <textarea
+                        class="w-full bg-background-light dark:bg-background-dark border border-primary/30 dark:border-primary/40 text-[#1c170d] dark:text-background-light placeholder:text-primary/50 dark:placeholder:text-primary/40 focus:ring-primary focus:border-primary rounded-lg text-sm p-3"
+                        id="description" placeholder="Provide a brief description of the file..." rows="4"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-[#1c170d] dark:text-background-light pb-2"
+                        for="source-type">Source Type</label>
+                    <select
+                        class="form-select w-full appearance-none bg-background-light dark:bg-background-dark border border-primary/30 dark:border-primary/40 text-[#1c170d] dark:text-background-light focus:ring-primary focus:border-primary rounded-lg text-sm p-3"
+                        id="source-type">
+                        <option>Select source type</option>
+                        <option>Internal Document</option>
+                        <option>External Link</option>
+                        <option>Case Study</option>
+                    </select>
+                </div>
+            </div>
+            <div class="flex justify-end items-center p-6 bg-primary/10 dark:bg-primary/20 rounded-b-xl space-x-4">
+                <button id="closeUploadDialog"
+                    class="px-6 py-2.5 text-sm font-bold text-[#1c170d] dark:text-background-light bg-transparent hover:bg-primary/20 dark:hover:bg-primary/30 rounded-lg transition-colors">
+                    Cancel
+                </button>
+                <button
+                    class="px-6 py-2.5 text-sm font-bold text-white bg-primary hover:bg-primary/90 rounded-lg transition-colors">
+                    Save File
+                </button>
+            </div>
+        </div>
+    </dialog>
+
+    <script>
+        // Dialog functionality
+        const uploadDialog = document.getElementById('uploadDialog');
+        const openUploadDialogButton = document.getElementById('openUploadDialog');
+        const closeUploadDialogButton = document.getElementById('closeUploadDialog');
+
+        // Open the dialog
+        openUploadDialogButton.addEventListener('click', () => {
+            uploadDialog.showModal();
+        });
+
+        // Close the dialog
+        closeUploadDialogButton.addEventListener('click', () => {
+            uploadDialog.close();
+        });
+    </script>
 
 </body>
 

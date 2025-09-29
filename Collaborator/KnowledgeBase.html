@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
     <link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter:wght@400;500;700;900"
         onload="this.rel='stylesheet'" rel="stylesheet" />
@@ -34,6 +34,36 @@
     </script>
     <title>Civilcast - Knowledge Base</title>
     <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <style>
+        /* Custom styling for the form select to show the primary colored arrow */
+        .form-select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23f9ad1f' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.75rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* Styling for the native <dialog> element */
+        dialog::backdrop {
+            background-color: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(2px);
+        }
+
+        dialog {
+            /* Remove default dialog border/padding */
+            border: none;
+            padding: 0;
+            margin: auto;
+            max-width: 38rem;
+            /* Equivalent to max-w-2xl in Tailwind */
+            width: 100%;
+            border-radius: 0.75rem;
+            /* Equivalent to rounded-xl in Tailwind */
+        }
+    </style>
 </head>
 
 <body class="font-display bg-background-light dark:bg-background-dark text-black dark:text-white">
@@ -42,11 +72,11 @@
             <div class="container mx-auto px-6">
                 <div class="flex items-center justify-between h-16">
                     <div class="flex items-center gap-2.5">
-                        
+
                         <img class="h-9 w-9" src="../assets/favicon.png" alt="civilcast">
                         <h1 class="text-xl font-bold">Civilcast</h1>
                     </div>
-                    
+
                     <nav class="hidden md:flex items-center space-x-12 text-sm font-medium">
                         <a class="hover:text-primary transition-colors" href="Analytics.html">Analytics</a>
 
@@ -56,24 +86,16 @@
                         <a class="text-primary" href="">Knowledge Base</a>
                     </nav>
                     <div class="flex items-center gap-4">
-                        <div class="relative w-72">
-                            <span
-                                class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-white/50">search</span>
-                            <input
-                                class="w-full pl-10 pr-4 py-2 rounded-lg bg-white/10 border-transparent focus:border-primary focus:ring-primary text-white"
-                                placeholder="Search..." type="text" />
-                        </div>
+
                         <button class="relative p-2 mt-2 rounded-full hover:bg-white/10">
                             <span class="material-symbols-outlined">notifications</span>
                             <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-primary rounded-full"></span>
                         </button>
                         <div class="relative inline-block">
-                            <!-- Profile Icon -->
                             <div id="profileBtn" class="w-10 h-10 bg-cover rounded-full cursor-pointer"
                                 style="background-image: url('../assets/collaborator.png');">
                             </div>
 
-                            <!-- Popup -->
                             <div id="profilePopup"
                                 class="hidden absolute right-0 mt-2 w-80 bg-white border rounded-lg shadow-lg p-4 z-50">
                                 <div class="flex items-center space-x-3">
@@ -89,19 +111,24 @@
                                     <button
                                         class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Settings</button>
                                 </a>
+                                <a href="../index.html">
+                                    <button
+                                        class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Log
+                                        out</button>
+                                </a>
                             </div>
                         </div>
 
                         <script>
-                            const btn = document.getElementById("profileBtn");
-                            const popup = document.getElementById("profilePopup");
+                            const profileBtn = document.getElementById("profileBtn");
+                            const profilePopup = document.getElementById("profilePopup");
 
-                            btn.addEventListener("click", () => {
-                                popup.classList.toggle("hidden");
+                            profileBtn.addEventListener("click", () => {
+                                profilePopup.classList.toggle("hidden");
                             });
                             document.addEventListener("click", (e) => {
-                                if (!btn.contains(e.target) && !popup.contains(e.target)) {
-                                    popup.classList.add("hidden");
+                                if (!profileBtn.contains(e.target) && !profilePopup.contains(e.target)) {
+                                    profilePopup.classList.add("hidden");
                                 }
                             });
                         </script>
@@ -116,7 +143,8 @@
                     <p class="text-black/60 dark:text-white/60 mt-1">Manage the quality and currency of the
                         organizational knowledge used by the AI.</p>
                 </div>
-                <button class="bg-primary text-black font-bold py-2 px-4 rounded-lg flex items-center gap-2">
+                <button id="openUploadDialog"
+                    class="bg-primary text-black font-bold py-2 px-4 rounded-lg flex items-center gap-2">
                     <span class="material-symbols-outlined">upload_file</span>
                     Upload New File
                 </button>
@@ -278,6 +306,101 @@
         </main>
     </div>
 
+    <dialog id="uploadDialog" class="bg-transparent backdrop:bg-black/30 backdrop:backdrop-blur-sm">
+        <div
+            class="bg-background-light dark:bg-background-dark text-[#1c170d] dark:text-background-light rounded-xl shadow-2xl w-full">
+            <div class="p-6 border-b border-primary/20 dark:border-primary/30">
+                <h2 class="text-xl font-bold">Add Knowledge Base File</h2>
+                <p class="text-sm text-primary/80 dark:text-primary/70 mt-1">Fill in the details below to add a new file
+                    to the knowledge base.</p>
+            </div>
+            <div class="p-6 space-y-6">
+                <div
+                    class="flex flex-col items-center justify-center w-full p-6 border-2 border-dashed border-primary/40 rounded-lg bg-primary/10 dark:bg-primary/20">
+                    <span class="material-symbols-outlined text-4xl text-primary">cloud_upload</span>
+                    <p class="mt-2 text-sm text-primary/90 dark:text-primary/80">
+                        <span class="font-semibold">Click to upload</span> or drag and drop
+                    </p>
+                    <p class="text-xs text-primary/70 dark:text-primary/60">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                    <input class="sr-only" id="file-upload" name="file-upload" type="file" />
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-[#1c170d] dark:text-background-light pb-2"
+                            for="file-name">File Name</label>
+                        <input
+                            class="w-full bg-background-light dark:bg-background-dark border border-primary/30 dark:border-primary/40 text-[#1c170d] dark:text-background-light placeholder:text-primary/50 dark:placeholder:text-primary/40 focus:ring-primary focus:border-primary rounded-lg text-sm p-3"
+                            id="file-name" placeholder="e.g., Q3_Financial_Report.pdf" type="text" />
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-[#1c170d] dark:text-background-light pb-2"
+                            for="department">Department</label>
+                        <select
+                            class="form-select w-full appearance-none bg-background-light dark:bg-background-dark border border-primary/30 dark:border-primary/40 text-[#1c170d] dark:text-background-light focus:ring-primary focus:border-primary rounded-lg text-sm p-3"
+                            id="department">
+                            <option>Select department</option>
+                            <option>Engineering</option>
+                            <option>Marketing</option>
+                            <option>Sales</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-[#1c170d] dark:text-background-light pb-2"
+                        for="tags">Tags</label>
+                    <input
+                        class="w-full bg-background-light dark:bg-background-dark border border-primary/30 dark:border-primary/40 text-[#1c170d] dark:text-background-light placeholder:text-primary/50 dark:placeholder:text-primary/40 focus:ring-primary focus:border-primary rounded-lg text-sm p-3"
+                        id="tags" placeholder="Add tags separated by commas" type="text" />
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-[#1c170d] dark:text-background-light pb-2"
+                        for="description">Description</label>
+                    <textarea
+                        class="w-full bg-background-light dark:bg-background-dark border border-primary/30 dark:border-primary/40 text-[#1c170d] dark:text-background-light placeholder:text-primary/50 dark:placeholder:text-primary/40 focus:ring-primary focus:border-primary rounded-lg text-sm p-3"
+                        id="description" placeholder="Provide a brief description of the file..." rows="4"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-[#1c170d] dark:text-background-light pb-2"
+                        for="source-type">Source Type</label>
+                    <select
+                        class="form-select w-full appearance-none bg-background-light dark:bg-background-dark border border-primary/30 dark:border-primary/40 text-[#1c170d] dark:text-background-light focus:ring-primary focus:border-primary rounded-lg text-sm p-3"
+                        id="source-type">
+                        <option>Select source type</option>
+                        <option>Internal Document</option>
+                        <option>External Link</option>
+                        <option>Case Study</option>
+                    </select>
+                </div>
+            </div>
+            <div class="flex justify-end items-center p-6 bg-primary/10 dark:bg-primary/20 rounded-b-xl space-x-4">
+                <button id="closeUploadDialog"
+                    class="px-6 py-2.5 text-sm font-bold text-[#1c170d] dark:text-background-light bg-transparent hover:bg-primary/20 dark:hover:bg-primary/30 rounded-lg transition-colors">
+                    Cancel
+                </button>
+                <button
+                    class="px-6 py-2.5 text-sm font-bold text-white bg-primary hover:bg-primary/90 rounded-lg transition-colors">
+                    Save File
+                </button>
+            </div>
+        </div>
+    </dialog>
+
+    <script>
+        // Dialog functionality
+        const uploadDialog = document.getElementById('uploadDialog');
+        const openUploadDialogButton = document.getElementById('openUploadDialog');
+        const closeUploadDialogButton = document.getElementById('closeUploadDialog');
+
+        // Open the dialog
+        openUploadDialogButton.addEventListener('click', () => {
+            uploadDialog.showModal();
+        });
+
+        // Close the dialog
+        closeUploadDialogButton.addEventListener('click', () => {
+            uploadDialog.close();
+        });
+    </script>
 </body>
 
 </html>
