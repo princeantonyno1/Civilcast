@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Civilcast - Create Space</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f9ab1a",
+                        "background-light": "#ffffff",
+                        "background-dark": "#000000",
+                        "content-light": "#000000",
+                        "content-dark": "#ffffff"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+    </style>
+</head>
+
+<body class="bg-background font-sans">
+    <div class="flex flex-col min-h-screen">
+        <header class="bg-background-dark text-content-dark dark:text-content-light sticky top-0 z-20">
+            <div class="container mx-auto px-6 py-3 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <img class="h-9 w-9" src="../assets/favicon.png" alt="civilcast">
+
+                    <h1 class="text-xl font-bold">Civilcast</h1>
+                </div>
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a class="hover:text-primary transition-colors" href="AnalyticsDashboard.html">Analytics</a>
+                    <a class="text-primary" href="">Manage Spaces</a>
+                    <a class="hover:text-primary transition-colors" href="AISkillManagement.html">AI Skills</a>
+                    <a class="hover:text-primary transition-colors" href="KnowledgeBase.html">Knowledge Base</a>
+                    <a class="hover:text-primary transition-colors" href="TeamManagement.html">Team</a>
+                    <a class="hover:text-primary transition-colors" href="IntegrationManagement.html">Integration</a>
+                    <a class="hover:text-primary transition-colors" href="SupportTicketHandling.html">Support</a>
+                </nav>
+
+                <div class="relative inline-block">
+                    <!-- Profile Icon -->
+                    <div id="profileBtn" class="w-10 h-10 bg-cover rounded-full cursor-pointer"
+                        style="background-image: url('../assets/admin.png');">
+                    </div>
+
+                    <!-- Popup -->
+                    <div id="profilePopup"
+                        class="hidden absolute right-0 mt-2 w-60 bg-white border rounded-lg shadow-lg p-4 z-50">
+                        <div class="flex items-center space-x-3">
+                            <img src="../assets/admin.png" class="w-10 h-10 rounded-full" />
+                            <div>
+                                <p class="font-semibold text-black">John Doe</p>
+                                <p class="text-sm text-gray-500">admin@civilcast.com</p>
+                            </div>
+                        </div>
+                        <hr class="my-3">
+                        <p class="text-sm text-gray-700 pl-3">IT Admin</p>
+                        <a href="Settings.html">
+                            <button
+                                class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Settings</button>
+                        </a>
+                        <a href="../index.html">
+                            <button class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Log
+                                out</button>
+                        </a>
+                    </div>
+                </div>
+
+                <script>
+                    const btn = document.getElementById("profileBtn");
+                    const popup = document.getElementById("profilePopup");
+
+                    btn.addEventListener("click", () => {
+                        popup.classList.toggle("hidden");
+                    });
+                    document.addEventListener("click", (e) => {
+                        if (!btn.contains(e.target) && !popup.contains(e.target)) {
+                            popup.classList.add("hidden");
+                        }
+                    });
+                </script>
+            </div>
+        </header>
+        <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="max-w-2xl mx-auto">
+                <div class="mb-8">
+                    <h2 class="text-3xl font-bold text-foreground">Create a New Space</h2>
+                    <p class="text-muted-foreground mt-2">Spaces are where your team collaborates. Fill in the details
+                        below to get started.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg border border-border">
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-foreground mb-1" for="space-name">Space
+                                Name</label>
+                            <input
+                                class="w-full bg-white border border-border text-foreground rounded-DEFAULT h-12 px-4 focus:ring-2 focus:ring-primary focus:border-primary"
+                                id="space-name" placeholder="e.g. Engineering Team" type="text" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-foreground mb-1" for="space-slug">Space
+                                Slug</label>
+                            <input
+                                class="w-full bg-white border border-border text-foreground rounded-DEFAULT h-12 px-4 focus:ring-2 focus:ring-primary focus:border-primary"
+                                id="space-slug" placeholder="e.g. engineering-team" type="text" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-foreground mb-1"
+                                for="description">Description</label>
+                            <textarea
+                                class="w-full bg-white border border-border text-foreground rounded-DEFAULT p-4 focus:ring-2 focus:ring-primary focus:border-primary"
+                                id="description" placeholder="Describe the purpose of this space" rows="4"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-foreground mb-1"
+                                for="linked-departments">Linked Departments</label>
+                            <select
+                                class="form-select w-full bg-white border border-border text-foreground rounded-DEFAULT h-12 px-4 appearance-none focus:ring-2 focus:ring-primary focus:border-primary"
+                                id="linked-departments">
+                                <option>Select departments</option>
+                                <option>Product</option>
+                                <option>Design</option>
+                                <option>Marketing</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-foreground mb-1" for="default-skills">Default
+                                Skills for Space</label>
+                            <select
+                                class="form-select w-full bg-white border border-border text-foreground rounded-DEFAULT h-12 px-4 appearance-none focus:ring-2 focus:ring-primary focus:border-primary"
+                                id="default-skills">
+                                <option>Select skills</option>
+                                <option>Frontend Development</option>
+                                <option>Backend Development</option>
+                                <option>UI/UX Design</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-foreground mb-1" for="space-owner">Space
+                                Owner</label>
+                            <select
+                                class="form-select w-full bg-white border border-border text-foreground rounded-DEFAULT h-12 px-4 appearance-none focus:ring-2 focus:ring-primary focus:border-primary"
+                                id="space-owner">
+                                <option>Select owner</option>
+                                <option>Alice Johnson</option>
+                                <option>Bob Williams</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-foreground mb-2">Visibility</label>
+                            <div class="flex gap-4">
+                                <label
+                                    class="flex items-center gap-2 p-3 rounded-DEFAULT border border-border cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/10 flex-1">
+                                    <input class="form-radio text-primary focus:ring-primary" name="visibility"
+                                        type="radio" />
+                                    <span class="text-sm font-medium text-foreground">Public</span>
+                                </label>
+                                <label
+                                    class="flex items-center gap-2 p-3 rounded-DEFAULT border border-border cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/10 flex-1">
+                                    <input class="form-radio text-primary focus:ring-primary" name="visibility"
+                                        type="radio" />
+                                    <span class="text-sm font-medium text-foreground">Private</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between pt-4">
+                            <label class="text-sm font-medium text-foreground" for="active-toggle">Active</label>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input checked="" class="sr-only peer" id="active-toggle" type="checkbox" />
+                                <div
+                                    class="w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary">
+                                </div>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="mt-8 flex justify-end gap-4">
+                    <a href="ManageSpaces.html">
+                        <button
+                        class="px-6 py-2.5 rounded-DEFAULT text-sm font-semibold bg-white border border-border text-foreground hover:bg-gray-50 transition-colors">
+                        Cancel
+                    </button>   
+                    </a>
+                    <button
+                        class="px-6 py-2.5 rounded-DEFAULT text-sm font-semibold bg-primary text-black hover:bg-primary/90 transition-colors">
+                        Create Space
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>

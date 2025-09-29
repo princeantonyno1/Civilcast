@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html class="" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Civilcast Notifications</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FAA61A",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#000000",
+                        "content-light": "#111827",
+                        "content-dark": "#FFFFFF",
+                        "surface-light": "#F9FAFB",
+                        "surface-dark": "#1F2937",
+                        "border-light": "#E5E7EB",
+                        "border-dark": "#374151",
+                        "muted-light": "#6B7280",
+                        "muted-dark": "#9CA3AF"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display">
+  <div class="flex min-h-screen w-full flex-col">
+    <header class="bg-background-dark text-content-dark sticky top-0 z-20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                        
+                    <img class="h-9 w-9" src="../assets/favicon.png" alt="civilcast">
+                        <h1 class="text-xl font-bold">Civilcast</h1>
+                    </div>
+                    <nav class="hidden md:flex items-center space-x-12 text-sm font-medium">
+
+                    <a class="hover:text-primary transition-colors" href="Chat.html">Chat</a>
+                    <a class="hover:text-primary transition-colors" href="RequestNewKnowledge.html">Request new knowledge</a>
+                </nav>
+                    <div class="relative inline-block">
+                        <!-- Profile Icon -->
+                        <div id="profileBtn" class="w-10 h-10 bg-cover rounded-full cursor-pointer"
+                            style="background-image: url('../assets/employee.png');">
+                        </div>
+
+                        <!-- Popup -->
+                        <div id="profilePopup"
+                            class="hidden absolute right-0 mt-2 w-80 bg-white border rounded-lg shadow-lg p-4 z-50">
+                            <div class="flex items-center space-x-3">
+                                <img src="../assets/employee.png" class="w-10 h-10 rounded-full" />
+                                <div>
+                                    <p class="font-semibold text-black">Alex Samuel</p>
+                                    <p class="text-sm text-gray-500">employee@civilcast.com</p>
+                                </div>
+                            </div>
+                            <hr class="my-3">
+                            <p class="text-sm text-gray-700 pl-3">Employee</p>
+                            <a href="Settings.html">
+                                <button
+                                    class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Settings</button>
+                            </a>
+                            <a href="../index.html">
+                                <button
+                                    class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Log out</button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <script>
+                        const btn = document.getElementById("profileBtn");
+                        const popup = document.getElementById("profilePopup");
+
+                        btn.addEventListener("click", () => {
+                            popup.classList.toggle("hidden");
+                        });
+                        document.addEventListener("click", (e) => {
+                            if (!btn.contains(e.target) && !popup.contains(e.target)) {
+                                popup.classList.add("hidden");
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
+        </header>
+    <main class="flex-1 px-4 py-8 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-4xl">
+        <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+          <h1 class="text-3xl font-bold text-black dark:text-white">Notifications</h1>
+          <div class="flex items-center gap-4">
+            <button
+              class="flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-bold text-black hover:bg-primary/80">
+              <span class="material-symbols-outlined text-base"> done_all </span>
+              <span>Mark all as read</span>
+            </button>
+            <div class="relative">
+              <select
+                class="form-select w-full appearance-none rounded-lg border-primary/20 bg-background-light py-2 pl-3 pr-10 text-sm text-black dark:border-primary/30 dark:bg-background-dark dark:text-white focus:border-primary focus:ring-primary">
+                <option>Sort by Date</option>
+                <option>Sort by Type</option>
+              </select>
+              <span
+                class="material-symbols-outlined pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-black/50 dark:text-white/50">
+                expand_more </span>
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 border-b border-primary/20 dark:border-primary/30">
+          <nav class="-mb-px flex space-x-6">
+            <a class="shrink-0 border-b-2 border-primary px-1 pb-3 text-sm font-semibold text-primary" href="#"> All
+            </a>
+            <a class="shrink-0 border-b-2 border-transparent px-1 pb-3 text-sm font-medium text-black/60 hover:border-black/30 hover:text-black dark:text-white/60 dark:hover:border-white/30 dark:hover:text-white"
+              href="#"> Unread </a>
+            <a class="shrink-0 border-b-2 border-transparent px-1 pb-3 text-sm font-medium text-black/60 hover:border-black/30 hover:text-black dark:text-white/60 dark:hover:border-white/30 dark:hover:text-white"
+              href="#"> Read </a>
+          </nav>
+        </div>
+        <div class="mt-6 flex flex-col gap-2">
+          <div class="group flex items-start gap-4 rounded-lg bg-primary/10 p-4 dark:bg-primary/20">
+            <div
+              class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/20 dark:bg-primary/30">
+              <span class="material-symbols-outlined text-primary"> check_circle </span>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between">
+                <p class="font-semibold text-black dark:text-white">Request Approved</p>
+                <div class="flex items-center gap-2">
+                  <p class="text-xs text-black/60 dark:text-white/60">2 hours ago</p>
+                  <span class="h-2 w-2 rounded-full bg-primary"></span>
+                </div>
+              </div>
+              <p class="text-sm text-black/80 dark:text-white/80">Your request for a new software license has been
+                approved.</p>
+              <p class="text-xs text-black/60 dark:text-white/60">Request ID: 12345</p>
+            </div>
+            <div class="flex shrink-0 items-center gap-2 opacity-0 transition-opacity group-hover:opacity-100">
+              <button
+                class="flex h-8 w-8 items-center justify-center rounded-lg hover:bg-black/10 dark:hover:bg-white/10"
+                title="Mark as Read"><span class="material-symbols-outlined text-lg"> check </span></button>
+              <button
+                class="flex h-8 w-8 items-center justify-center rounded-lg hover:bg-black/10 dark:hover:bg-white/10"
+                title="Open"><span class="material-symbols-outlined text-lg"> open_in_new </span></button>
+              <button
+                class="flex h-8 w-8 items-center justify-center rounded-lg hover:bg-black/10 dark:hover:bg-white/10"
+                title="Snooze"><span class="material-symbols-outlined text-lg"> snooze </span></button>
+            </div>
+          </div>
+          <div class="group flex items-start gap-4 rounded-lg bg-primary/10 p-4 dark:bg-primary/20">
+            <div
+              class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/20 dark:bg-primary/30">
+              <span class="material-symbols-outlined text-primary"> chat </span>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between">
+                <p class="font-semibold text-black dark:text-white">New Comment</p>
+                <div class="flex items-center gap-2">
+                  <p class="text-xs text-black/60 dark:text-white/60">4 hours ago</p>
+                  <span class="h-2 w-2 rounded-full bg-primary"></span>
+                </div>
+              </div>
+              <p class="text-sm text-black/80 dark:text-white/80">A new comment has been added to the project
+                discussion.</p>
+              <p class="text-xs text-black/60 dark:text-white/60">Project: Civilcast Integration</p>
+            </div>
+            <div class="flex shrink-0 items-center gap-2 opacity-0 transition-opacity group-hover:opacity-100">
+              <button
+                class="flex h-8 w-8 items-center justify-center rounded-lg hover:bg-black/10 dark:hover:bg-white/10"
+                title="Mark as Read"><span class="material-symbols-outlined text-lg"> check </span></button>
+              <button
+                class="flex h-8 w-8 items-center justify-center rounded-lg hover:bg-black/10 dark:hover:bg-white/10"
+                title="Open"><span class="material-symbols-outlined text-lg"> open_in_new </span></button>
+              <button
+                class="flex h-8 w-8 items-center justify-center rounded-lg hover:bg-black/10 dark:hover:bg-white/10"
+                title="Snooze"><span class="material-symbols-outlined text-lg"> snooze </span></button>
+            </div>
+          </div>
+          <div class="group flex items-start gap-4 rounded-lg p-4 hover:bg-black/5 dark:hover:bg-white/5">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-black/10 dark:bg-white/10">
+              <span class="material-symbols-outlined text-black/60 dark:text-white/60"> schedule </span>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between">
+                <p class="font-semibold text-black/80 dark:text-white/80">Deadline Extended</p>
+                <p class="text-xs text-black/60 dark:text-white/60">1 day ago</p>
+              </div>
+              <p class="text-sm text-black/60 dark:text-white/60">The deadline for the project has been extended by one
+                week.</p>
+              <p class="text-xs text-black/60 dark:text-white/60">Project: Civilcast Integration</p>
+            </div>
+            <div class="flex shrink-0 items-center gap-2 opacity-0 transition-opacity group-hover:opacity-100">
+              <button
+                class="flex h-8 w-8 items-center justify-center rounded-lg hover:bg-black/10 dark:hover:bg-white/10"
+                title="Open"><span class="material-symbols-outlined text-lg"> open_in_new </span></button>
+              <button
+                class="flex h-8 w-8 items-center justify-center rounded-lg hover:bg-black/10 dark:hover:bg-white/10"
+                title="Snooze"><span class="material-symbols-outlined text-lg"> snooze </span></button>
+            </div>
+          </div>
+          <div class="group flex items-start gap-4 rounded-lg p-4 hover:bg-black/5 dark:hover:bg-white/5">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-black/10 dark:bg-white/10">
+              <span class="material-symbols-outlined text-black/60 dark:text-white/60"> person_add </span>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between">
+                <p class="font-semibold text-black/80 dark:text-white/80">New User Joined</p>
+                <p class="text-xs text-black/60 dark:text-white/60">2 days ago</p>
+              </div>
+              <p class="text-sm text-black/60 dark:text-white/60">A new user, Alex Turner, has joined the Civilcast
+                team.</p>
+              <p class="text-xs text-black/60 dark:text-white/60">Department: Engineering</p>
+            </div>
+            <div class="flex shrink-0 items-center gap-2 opacity-0 transition-opacity group-hover:opacity-100">
+              <button
+                class="flex h-8 w-8 items-center justify-center rounded-lg hover:bg-black/10 dark:hover:bg-white/10"
+                title="Open"><span class="material-symbols-outlined text-lg"> open_in_new </span></button>
+              <button
+                class="flex h-8 w-8 items-center justify-center rounded-lg hover:bg-black/10 dark:hover:bg-white/10"
+                title="Snooze"><span class="material-symbols-outlined text-lg"> snooze </span></button>
+            </div>
+          </div>
+          <div class="group flex items-start gap-4 rounded-lg p-4 hover:bg-black/5 dark:hover:bg-white/5">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-black/10 dark:bg-white/10">
+              <span class="material-symbols-outlined text-black/60 dark:text-white/60"> power </span>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between">
+                <p class="font-semibold text-black/80 dark:text-white/80">Integration Complete</p>
+                <p class="text-xs text-black/60 dark:text-white/60">3 days ago</p>
+              </div>
+              <p class="text-sm text-black/60 dark:text-white/60">The integration with the new CRM system is now
+                complete.</p>
+              <p class="text-xs text-black/60 dark:text-white/60">Integration: CRM</p>
+            </div>
+            <div class="flex shrink-0 items-center gap-2 opacity-0 transition-opacity group-hover:opacity-100">
+              <button
+                class="flex h-8 w-8 items-center justify-center rounded-lg hover:bg-black/10 dark:hover:bg-white/10"
+                title="Open"><span class="material-symbols-outlined text-lg"> open_in_new </span></button>
+              <button
+                class="flex h-8 w-8 items-center justify-center rounded-lg hover:bg-black/10 dark:hover:bg-white/10"
+                title="Snooze"><span class="material-symbols-outlined text-lg"> snooze </span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

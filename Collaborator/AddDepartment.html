@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Civilcast - Add Department</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-color: #FAA61A;
+        }
+        .form-select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FAA61A",
+                        "background-light": "#ffffff",
+                        "background-dark": "#000000",
+                        "foreground-light": "#000000",
+                        "foreground-dark": "#ffffff",
+                        "card-light": "#ffffff",
+                        "card-dark": "#1a1a1a",
+                        "border-light": "#e5e7eb",
+                        "border-dark": "#2e2e2e"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
+        }
+    </style>
+</head>
+
+<body class="font-sans bg-white">
+    <div class="flex h-full min-h-screen w-full flex-col">
+        <header class="bg-background-dark text-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center gap-8">
+                        <a class="flex items-center gap-2 text-xl font-bold" href="#">
+
+                            <img class="h-9 w-9" src="../assets/favicon.png" alt="civilcast">
+                            <span>Civilcast</span>
+                        </a>
+                    </div>
+
+                    <nav class="hidden md:flex items-center space-x-12 text-sm font-medium">
+                        <a class="hover:text-primary transition-colors" href="Chat.html">Chat</a>
+                        <a class="hover:text-primary transition-colors" href="Analytics.html">Analytics</a>
+
+                        <a class="text-primary" href="">Department</a>
+                        <a class="hover:text-primary transition-colors" href="Request.html">Requests</a>
+                        <a class="hover:text-primary transition-colors" href="KnowledgeBase.html">Knowledge Base</a>
+                    </nav>
+                    <div class="flex items-center gap-4">
+
+                        <div class="relative inline-block">
+                            <!-- Profile Icon -->
+                            <div id="profileBtn" class="w-10 h-10 bg-cover rounded-full cursor-pointer"
+                                style="background-image: url('../assets/collaborator.png');">
+                            </div>
+
+                            <!-- Popup -->
+                            <div id="profilePopup"
+                                class="hidden absolute right-0 mt-2 w-80 bg-white border rounded-lg shadow-lg p-4 z-50">
+                                <div class="flex items-center space-x-3">
+                                    <img src="../assets/admin.png" class="w-10 h-10 rounded-full" />
+                                    <div>
+                                        <p class="font-semibold text-black">Steve Jones</p>
+                                        <p class="text-sm text-gray-500">collaborator@civilcast.com</p>
+                                    </div>
+                                </div>
+                                <hr class="my-3">
+                                <p class="text-sm text-gray-700 pl-3">Collaborator</p>
+                                <a href="Settings.html">
+                                    <button
+                                        class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Settings</button>
+                                </a>
+                                <a href="../index.html">
+                                    <button
+                                        class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Log
+                                        out</button>
+                                </a>
+                            </div>
+                        </div>
+
+                        <script>
+                            const btn = document.getElementById("profileBtn");
+                            const popup = document.getElementById("profilePopup");
+
+                            btn.addEventListener("click", () => {
+                                popup.classList.toggle("hidden");
+                            });
+                            document.addEventListener("click", (e) => {
+                                if (!btn.contains(e.target) && !popup.contains(e.target)) {
+                                    popup.classList.add("hidden");
+                                }
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="flex-grow justify-center py-10 bg-gray-50">
+            <div class="mx-auto w-full max-w-xl px-4">
+                <div class="mb-8 text-center md:text-left">
+                    <h1 class="text-3xl font-bold text-black">Add Department</h1>
+                    <p class="mt-2 text-gray-600">Create a new department within Civilcast to organize teams and manage
+                        access.</p>
+                </div>
+                <div class="space-y-6 rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+                    <div>
+                        <label class="block text-sm font-medium text-black" for="department-name">Department
+                            Name</label>
+                        <input
+                            class="mt-1 block w-full rounded-md border-gray-300 p-3 text-black placeholder-gray-400 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]"
+                            id="department-name" placeholder="e.g., Engineering" type="text" />
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-black" for="department-code">Department
+                            Code</label>
+                        <input
+                            class="mt-1 block w-full rounded-md border-gray-300 p-3 text-black placeholder-gray-400 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]"
+                            id="department-code" placeholder="e.g., ENG" type="text" />
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-black" for="parent-department">Parent
+                            Department/Hierarchy</label>
+                        <select
+                            class="form-select mt-1 block w-full rounded-md border-gray-300 p-3 text-black shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]"
+                            id="parent-department">
+                            <option>Select parent department</option>
+                            <option>Technology</option>
+                            <option>Human Resources</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-black" for="description">Description</label>
+                        <textarea
+                            class="mt-1 block w-full rounded-md border-gray-300 p-3 text-black placeholder-gray-400 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]"
+                            id="description"
+                            placeholder="Provide a brief description of the department's responsibilities and goals."
+                            rows="4"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-black" for="default-skills">Default Skills</label>
+                        <select
+                            class="form-select mt-1 block w-full rounded-md border-gray-300 p-3 text-black shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]"
+                            id="default-skills">
+                            <option>Select default skills</option>
+                            <option>Project Management</option>
+                            <option>Software Development</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-black" for="visibility">Visibility/Access</label>
+                        <select
+                            class="form-select mt-1 block w-full rounded-md border-gray-300 p-3 text-black shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]"
+                            id="visibility">
+                            <option>Select visibility</option>
+                            <option>Public</option>
+                            <option>Private</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-black" for="department-admin">Department
+                            Admin</label>
+                        <select
+                            class="form-select mt-1 block w-full rounded-md border-gray-300 p-3 text-black shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]"
+                            id="department-admin">
+                            <option>Select department admin</option>
+                            <option>John Doe</option>
+                            <option>Jane Smith</option>
+                        </select>
+                    </div>
+                    <div class="flex items-center justify-between rounded-lg bg-gray-50 p-4">
+                        <span class="font-medium text-black">Active</span>
+                        <label class="relative inline-flex cursor-pointer items-center" for="active-toggle">
+                            <input checked="" class="peer sr-only" id="active-toggle" type="checkbox" />
+                            <div
+                                class="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-[var(--primary-color)] peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none">
+                            </div>
+                        </label>
+                    </div>
+                    <div class="flex flex-col-reverse gap-3 border-t border-gray-200 pt-6 sm:flex-row sm:justify-end">
+                        <a href="Department.html">
+                        <button
+                            class="flex h-10 items-center justify-center rounded-md bg-gray-100 px-4 text-sm font-semibold text-black hover:bg-gray-200">Cancel</button>
+                        </a>
+                            <button
+                            class="flex h-10 items-center justify-center rounded-md bg-[var(--primary-color)] px-4 text-sm font-semibold text-black hover:brightness-95">Add
+                            Department</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>

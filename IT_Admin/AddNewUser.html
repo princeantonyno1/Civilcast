@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Civilcast - Add New User</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FAA61A",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#000000",
+                        "content-light": "#000000",
+                        "content-dark": "#FFFFFF",
+                        "subtle-light": "#F0F0F0",
+                        "subtle-dark": "#1A1A1A",
+                        "border-light": "#E0E0E0",
+                        "border-dark": "#2A2A2A",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .form-select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+            -webkit-print-color-adjust: exact;
+            color-adjust: exact;
+        }
+        *{
+            font-size: small;
+        }
+    </style>
+</head>
+
+<body class="font-display bg-background">
+    <div class="flex flex-col min-h-screen">
+        <header class="bg-background-dark sticky top-0 z-50">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="flex h-16 items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <img class="h-9 w-9" src="../assets/favicon.png" alt="civilcast">
+
+                        <h1 class="text-xl font-bold text-content-dark">Civilcast</h1>
+                    </div>
+                    <div class="hidden md:block ">
+                        <nav class="hidden md:flex items-center space-x-8 text-sm text-white font-medium">
+                            <a class="hover:text-primary transition-colors" href="AnalyticsDashboard.html">Analytics</a>
+
+                            <a class="hover:text-primary transition-colors" href="ManageSpaces.html">Manage Spaces</a>
+                            <a class="hover:text-primary transition-colors" href="AISkillManagement.html">AI Skills</a>
+                            <a class="hover:text-primary transition-colors" href="KnowledgeBase.html">Knowledge Base</a>
+                            <a class="text-primary" href="">Team</a>
+                            <a class="hover:text-primary transition-colors"
+                                href="IntegrationManagement.html">Integration</a>
+                            <a class="hover:text-primary transition-colors"
+                                href="SupportTicketHandling.html">Support</a>
+                        </nav>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="ml-4 flex items-center md:ml-6">
+                            <div class="relative inline-block">
+                                <!-- Profile Icon -->
+                                <div id="profileBtn" class="w-10 h-10 bg-cover rounded-full cursor-pointer"
+                                    style="background-image: url('../assets/admin.png');">
+                                </div>
+
+                                <!-- Popup -->
+                                <div id="profilePopup"
+                                    class="hidden absolute right-0 mt-2 w-60 bg-white border rounded-lg shadow-lg p-4 z-50">
+                                    <div class="flex items-center space-x-3">
+                                        <img src="../assets/admin.png" class="w-10 h-10 rounded-full" />
+                                        <div>
+                                            <p class="font-semibold text-black">John Doe</p>
+                                            <p class="text-sm text-gray-500">admin@civilcast.com</p>
+                                        </div>
+                                    </div>
+                                    <hr class="my-3">
+                                    <p class="text-sm text-gray-700 pl-3">IT Admin</p>
+                                    <a href="Settings.html">
+                                        <button
+                                            class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Settings</button>
+                                    </a>
+                                    <a href="../index.html">
+                                        <button
+                                            class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Log
+                                            out</button>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <script>
+                                const btn = document.getElementById("profileBtn");
+                                const popup = document.getElementById("profilePopup");
+
+                                btn.addEventListener("click", () => {
+                                    popup.classList.toggle("hidden");
+                                });
+                                document.addEventListener("click", (e) => {
+                                    if (!btn.contains(e.target) && !popup.contains(e.target)) {
+                                        popup.classList.add("hidden");
+                                    }
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="flex-grow bg-white">
+            <div class="container mx-auto px-4 py-12">
+                <div class="max-w-3xl mx-auto bg-white p-8 md:p-12">
+                    <h1 class="text-4xl font-bold text-text-main mb-10">Add New User</h1>
+                    <div class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-text-secondary mb-2" for="first-name">First
+                                    Name</label>
+                                <input
+                                    class="w-full h-12 px-4 rounded-lg bg-white border border-border-color focus:ring-primary focus:border-primary text-text-main placeholder-text-secondary/50 transition"
+                                    id="first-name" placeholder="Enter first name" type="text" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-text-secondary mb-2" for="last-name">Last
+                                    Name</label>
+                                <input
+                                    class="w-full h-12 px-4 rounded-lg bg-white border border-border-color focus:ring-primary focus:border-primary text-text-main placeholder-text-secondary/50 transition"
+                                    id="last-name" placeholder="Enter last name" type="text" />
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-text-secondary mb-2" for="email">Email</label>
+                            <input
+                                class="w-full h-12 px-4 rounded-lg bg-white border border-border-color focus:ring-primary focus:border-primary text-text-main placeholder-text-secondary/50 transition"
+                                id="email" placeholder="Enter email" type="email" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-text-secondary mb-2" for="role">Role</label>
+                            <select
+                                class="form-select appearance-none w-full h-12 px-4 rounded-lg bg-white border border-border-color focus:ring-primary focus:border-primary text-text-main transition"
+                                id="role">
+                                <option>Select role</option>
+                                <option>Administrator</option>
+                                <option>Manager</option>
+                                <option>User</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-text-secondary mb-2"
+                                for="department">Department/Space</label>
+                            <select
+                                class="form-select appearance-none w-full h-12 px-4 rounded-lg bg-white border border-border-color focus:ring-primary focus:border-primary text-text-main transition"
+                                id="department">
+                                <option>Select department/space</option>
+                                <option>IT</option>
+                                <option>Marketing</option>
+                                <option>Sales</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-text-secondary mb-2"
+                                for="skills">Skills</label>
+                            <select
+                                class="form-select appearance-none w-full h-12 px-4 rounded-lg bg-white border border-border-color focus:ring-primary focus:border-primary text-text-main transition"
+                                id="skills">
+                                <option>Select skills</option>
+                                <option>Frontend Development</option>
+                                <option>Backend Development</option>
+                                <option>UI/UX Design</option>
+                            </select>
+                        </div>
+                        <div
+                            class="flex items-center justify-between bg-zinc-50 p-4 rounded-lg border border-border-color">
+                            <span class="text-sm font-medium text-text-main">Send invitation email</span>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input checked="" class="sr-only peer" type="checkbox" value="" />
+                                <div
+                                    class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary">
+                                </div>
+                            </label>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-text-secondary mb-2"
+                                for="temp-access">Temporary access expires</label>
+                            <input
+                                class="w-full h-12 px-4 rounded-lg bg-white border border-border-color focus:ring-primary focus:border-primary text-text-main placeholder-text-secondary/50 transition"
+                                id="temp-access" type="date" />
+                        </div>
+                        <details class="group rounded-lg border border-border-color bg-zinc-50 overflow-hidden">
+                            <summary
+                                class="flex items-center justify-between p-4 cursor-pointer hover:bg-zinc-100 transition">
+                                <span class="font-medium text-text-main">Permissions</span>
+                                <span
+                                    class="material-symbols-outlined text-text-secondary transition-transform duration-300 group-open:rotate-180">expand_more</span>
+                            </summary>
+                            <div class="p-4 border-t border-border-color">
+                                <p class="text-sm text-text-secondary">Configure detailed user permissions here.</p>
+                            </div>
+                        </details>
+                        <div class="flex justify-end gap-4 pt-6">
+                            <a href="TeamManagement.html">
+                                <button
+                                class="h-12 px-8 rounded-lg bg-white border border-gray-300 text-text-main font-bold text-sm hover:bg-gray-100 transition-colors">Cancel</button>
+                            
+                            </a>
+                            <button
+                                class="h-12 px-8 rounded-lg bg-primary text-black font-bold text-sm hover:bg-amber-400 transition-colors">Add
+                                User</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>

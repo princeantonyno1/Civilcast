@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Civilcast - Add New Integration</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <style type="text/tailwindcss">
+    :root {
+        --primary-color: #FAA61A;
+      }
+      .form-select {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+        background-position: right 0.5rem center;
+        background-repeat: no-repeat;
+        background-size: 1.5em 1.5em;
+        padding-right: 2.5rem;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+      }
+    </style>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#FAA61A", // Yellow
+            "background-light": "#ffffff", // White
+            "background-dark": "#1a1a1a",
+            "top-nav-light": "#000000", // Black
+            "top-nav-dark": "#000000", // Black
+            "text-main": "#000000", // Black
+            "text-light": "#ffffff", // White
+            "text-muted": "#6b7280",
+            "success": "#22c55e", // Green
+            "danger": "#ef4444", // Red
+            "warning": "#f59e0b", // Amber
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+
+<body class="font-display bg-white text-gray-800">
+  <div class="flex min-h-screen flex-col">
+    <header class="flex items-center justify-between px-6 py-3 bg-top-nav-light text-text-light">
+      <div class="flex items-center gap-8">
+        <div class="flex items-center gap-2">
+          <img class="h-9 w-9" src="../assets/favicon.png" alt="civilcast">
+
+          <h1 class="text-xl font-bold">Civilcast</h1>
+        </div>
+      </div>
+      <div class="container mx-auto px-6">
+                    <div class="flex justify-between items-center py-3">
+                        <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                            <a class="hover:text-primary transition-colors" href="AnalyticsDashboard.html">Analytics</a>
+                            <a class="hover:text-primary transition-colors" href="ManageSpaces.html">Manage Spaces</a>
+                            <a class="hover:text-primary transition-colors" href="AISkillManagement.html">AI Skills</a>
+                            <a class="hover:text-primary transition-colors" href="KnowledgeBase.html">Knowledge Base</a>
+                            <a class="hover:text-primary transition-colors" href="TeamManagement.html">Team</a>
+                            <a class="text-primary" href="IntegrationManagement.html">Integration</a>
+                            <a class="hover:text-primary transition-colors"
+                                href="SupportTicketHandling.html">Support</a>
+                        </div>
+                        </nav>
+                    </div>
+                </div>
+      <div class="flex items-center gap-6">
+        <div class="flex items-center gap-4 ml-6">
+          <button class="mt-3 rounded-full hover:bg-primary/20">
+            <span class="material-symbols-outlined">notifications</span>
+          </button>
+          <div class="relative inline-block">
+            <!-- Profile Icon -->
+            <div id="profileBtn" class="w-10 h-10 bg-cover rounded-full cursor-pointer"
+              style="background-image: url('../assets/admin.png');">
+            </div>
+
+            <!-- Popup -->
+            <div id="profilePopup"
+              class="hidden absolute right-0 mt-2 w-60 bg-white border rounded-lg shadow-lg p-4 z-50">
+              <div class="flex items-center space-x-3">
+                <img src="../assets/admin.png" class="w-10 h-10 rounded-full" />
+                <div>
+                  <p class="font-semibold text-black">John Doe</p>
+                  <p class="text-sm text-gray-500">admin@civilcast.com</p>
+                </div>
+              </div>
+              <hr class="my-3">
+              <p class="text-sm text-gray-700 pl-3">IT Admin</p>
+              <a href="Settings.html">
+                <button
+                  class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Settings</button>
+              </a>
+              <a href="../index.html">
+                <button class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Log out</button>
+              </a>
+            </div>
+          </div>
+
+          <script>
+            const btn = document.getElementById("profileBtn");
+            const popup = document.getElementById("profilePopup");
+
+            btn.addEventListener("click", () => {
+              popup.classList.toggle("hidden");
+            });
+            document.addEventListener("click", (e) => {
+              if (!btn.contains(e.target) && !popup.contains(e.target)) {
+                popup.classList.add("hidden");
+              }
+            });
+          </script>
+        </div>
+      </div>
+    </header>
+    <main class="flex-grow bg-gray-50">
+      <div class="mx-auto max-w-2xl px-4 py-10 sm:px-6 lg:px-8">
+        <div class="space-y-8">
+          <div>
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900">Add New Integration</h2>
+            <p class="mt-2 text-sm text-gray-600">Connect a new external system to your Civilcast workspace.</p>
+          </div>
+          <div class="space-y-6 rounded-lg border border-gray-200 bg-white p-6">
+            <div class="grid grid-cols-1 gap-6">
+              <div>
+                <label class="block text-sm font-medium text-gray-700" for="integration-type">Integration Type</label>
+                <select
+                  class="form-select mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]"
+                  id="integration-type" name="integration-type">
+                  <option>Select Integration Type</option>
+                  <option>Jira</option>
+                  <option>Slack</option>
+                  <option>GitHub</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700" for="integration-name">Integration Name</label>
+                <input
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]"
+                  id="integration-name" name="integration-name" placeholder="e.g., 'Project X Jira'" type="text" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700" for="environment">Environment</label>
+                <select
+                  class="form-select mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]"
+                  id="environment" name="environment">
+                  <option>Select Environment</option>
+                  <option>Production</option>
+                  <option>Staging</option>
+                  <option>Development</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700" for="credentials">Credentials/Auth</label>
+                <textarea
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]"
+                  id="credentials" name="credentials" placeholder="Enter API keys, OAuth tokens, etc."
+                  rows="3"></textarea>
+                <p class="mt-1 text-xs text-gray-500">Authentication details will be encrypted and stored securely.</p>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700" for="scopes">Scopes/Permissions</label>
+                <textarea
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]"
+                  id="scopes" name="scopes" placeholder="e.g., 'read:issues, write:comments'" rows="3"></textarea>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700" for="map-to">Map to Spaces/Departments</label>
+                <select
+                  class="form-select mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]"
+                  id="map-to" name="map-to">
+                  <option>Select Spaces/Departments</option>
+                  <option>Engineering</option>
+                  <option>Product</option>
+                  <option>Customer Support</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700" for="sync-frequency">Sync Frequency</label>
+                <select
+                  class="form-select mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]"
+                  id="sync-frequency" name="sync-frequency">
+                  <option>Select Sync Frequency</option>
+                  <option>Real-time</option>
+                  <option>Every 15 minutes</option>
+                  <option>Hourly</option>
+                  <option>Daily</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700" for="webhook-url">Webhook/Callback URL</label>
+                <input
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]"
+                  id="webhook-url" name="webhook-url" placeholder="https://api.civilcast.com/webhook/..." type="url" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700" for="notes">Additional Notes/Admin Contact
+                  (Optional)</label>
+                <textarea
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]"
+                  id="notes" name="notes" placeholder="Add any relevant notes or an admin contact person."
+                  rows="3"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-end gap-3 pt-4">
+            <a href="IntegrationManagement.html">
+              <button
+              class="rounded-lg bg-gray-200 px-4 py-2 text-sm font-semibold text-gray-800 shadow-sm hover:bg-gray-300"
+              type="button">Cancel</button>
+            </a>
+            <button
+              class="rounded-lg bg-[var(--primary-color)] px-4 py-2 text-sm font-semibold text-black shadow-sm hover:bg-opacity-90"
+              type="submit">Add Integration</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+</body>
+
+</html>
