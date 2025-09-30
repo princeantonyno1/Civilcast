@@ -73,17 +73,17 @@
                 <div class="flex items-center justify-between h-16">
                     <div class="flex items-center gap-2.5">
 
-                        <img class="h-9 w-9" src="../assets/favicon.png" alt="civilcast">
-                        <h1 class="text-xl font-bold">Civilcast</h1>
+                        <img class="h-9 w-auto" src="../assets/civilcast-white_logo.png" alt="civilcast">
+
                     </div>
 
                     <nav class="hidden md:flex items-center space-x-12 text-sm font-medium">
-                        <a class="hover:text-primary transition-colors" href="Chat.html">Chat</a>
+                        <a class="hover:text-primary transition-colors" href="Request.html">Requests</a>
                         <a class="hover:text-primary transition-colors" href="Analytics.html">Analytics</a>
+                        <a class="text-primary" href="">Knowledges</a>
+                        <a class="hover:text-primary transition-colors" href="Chat.html">Chat</a>
 
                         <a class="hover:text-primary transition-colors" href="Department.html">Department</a>
-                        <a class="hover:text-primary transition-colors" href="Request.html">Requests</a>
-                        <a class="text-primary" href="">Knowledge Base</a>
                     </nav>
                     <div class="flex items-center gap-4">
 
@@ -139,7 +139,7 @@
         <main class="flex-1 overflow-y-auto p-8">
             <div class="flex justify-between items-start mb-8">
                 <div>
-                    <h2 class="text-3xl font-bold">Knowledge Base</h2>
+                    <h2 class="text-3xl font-bold">Knowledges</h2>
                     <p class="text-black/60 dark:text-white/60 mt-1">Manage the quality and currency of the
                         organizational knowledge used by the AI.</p>
                 </div>
@@ -173,7 +173,7 @@
                                     class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/20 text-primary">Active</span>
                             </td>
                             <td class="px-6 py-4 text-black/60 dark:text-white/60">2024-01-15</td>
-                            
+
                         </tr>
                         <tr class="border-b border-black/10 dark:border-white/10">
                             <td class="px-6 py-4 font-medium">Manual 2.docx</td>
@@ -183,7 +183,7 @@
                                     class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/20 text-primary">Active</span>
                             </td>
                             <td class="px-6 py-4 text-black/60 dark:text-white/60">2023-12-20</td>
-                            
+
                         </tr>
                         <tr class="border-b border-black/10 dark:border-white/10">
                             <td class="px-6 py-4 font-medium">Standard 3.pdf</td>
@@ -193,7 +193,7 @@
                                     class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/20 text-primary">Active</span>
                             </td>
                             <td class="px-6 py-4 text-black/60 dark:text-white/60">2024-02-05</td>
-                            
+
                         </tr>
                         <tr class="border-b border-black/10 dark:border-white/10">
                             <td class="px-6 py-4 font-medium">Outdated Report.pdf</td>
@@ -203,7 +203,7 @@
                                     class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-black/10 dark:bg-white/10 text-black/60 dark:text-white/60">Inactive</span>
                             </td>
                             <td class="px-6 py-4 text-black/60 dark:text-white/60">2023-10-10</td>
-                            
+
                         </tr>
                         <tr>
                             <td class="px-6 py-4 font-medium">Archived Data.docx</td>
@@ -213,7 +213,7 @@
                                     class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-black/10 dark:bg-white/10 text-black/60 dark:text-white/60">Inactive</span>
                             </td>
                             <td class="px-6 py-4 text-black/60 dark:text-white/60">2023-08-25</td>
-                            
+
                         </tr>
                     </tbody>
                 </table>
@@ -309,12 +309,19 @@
                         </select>
                     </div>
                 </div>
+                <!-- Changed Tags input to Skills dropdown -->
                 <div>
                     <label class="block text-sm font-medium text-[#1c170d] dark:text-background-light pb-2"
-                        for="tags">Tags</label>
-                    <input
-                        class="w-full bg-background-light dark:bg-background-dark border border-primary/30 dark:border-primary/40 text-[#1c170d] dark:text-background-light placeholder:text-primary/50 dark:placeholder:text-primary/40 focus:ring-primary focus:border-primary rounded-lg text-sm p-3"
-                        id="tags" placeholder="Add tags separated by commas" type="text" />
+                        for="skills">Skills</label>
+                    <select
+                        class="form-select w-full appearance-none bg-background-light dark:bg-background-dark border border-primary/30 dark:border-primary/40 text-[#1c170d] dark:text-background-light focus:ring-primary focus:border-primary rounded-lg text-sm p-3"
+                        id="skills">
+                        <option>Select skill</option>
+                        <option>Installation guide</option>
+                        <option>Product drawings</option>
+                        <option>Australian standards</option>
+                        <option>Website and Catalogue</option>
+                    </select>
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-[#1c170d] dark:text-background-light pb-2"
@@ -348,6 +355,7 @@
             </div>
         </div>
     </dialog>
+
 
     <script>
         // Dialog functionality

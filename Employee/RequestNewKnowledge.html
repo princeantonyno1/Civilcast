@@ -44,17 +44,15 @@
         <header class="bg-black text-white">
             <div class="container mx-auto px-6 py-3 flex justify-between items-center">
                 <div class="flex items-center gap-3 bg-black px-3 py-1 rounded-md">
-                    
-                    <img class="h-9 w-9" src="../assets/favicon.png" alt="civilcast">
-                    <h1 class="text-xl font-bold">Civilcast</h1>
+                    <img class="h-9 w-auto" src="../assets/civilcast-white_logo.png" alt="civilcast">
                 </div>
                 <div class="flex items-center">
                     <nav class="hidden md:flex items-center space-x-12 text-sm font-medium">
 
-                    <a class="hover:text-primary transition-colors" href="Chat.html">Chat</a>
-                    
-                    <a class="text-primary" href="">Request new knowledge</a>
-                </nav>
+                        <a class="hover:text-primary transition-colors" href="Chat.html">Chat</a>
+
+                        <a class="text-primary" href="">Request new knowledge</a>
+                    </nav>
                     <div class="flex items-center gap-4 ml-6">
                         <button class="p-2 mt-2 rounded-full hover:bg-gray-800">
                             <span class="material-symbols-outlined">
@@ -62,47 +60,48 @@
                             </span>
                         </button>
                         <div class="relative inline-block">
-                        <!-- Profile Icon -->
-                        <div id="profileBtn" class="w-10 h-10 bg-cover rounded-full cursor-pointer"
-                            style="background-image: url('../assets/employee.png');">
-                        </div>
-
-                        <!-- Popup -->
-                        <div id="profilePopup"
-                            class="hidden absolute right-0 mt-2 w-80 bg-white border rounded-lg shadow-lg p-4 z-50">
-                            <div class="flex items-center space-x-3">
-                                <img src="../assets/employee.png" class="w-10 h-10 rounded-full" />
-                                <div>
-                                    <p class="font-semibold text-black">Alex Samuel</p>
-                                    <p class="text-sm text-gray-500">employee@civilcast.com</p>
-                                </div>
+                            <!-- Profile Icon -->
+                            <div id="profileBtn" class="w-10 h-10 bg-cover rounded-full cursor-pointer"
+                                style="background-image: url('../assets/employee.png');">
                             </div>
-                            <hr class="my-3">
-                            <p class="text-sm text-gray-700 pl-3">Employee</p>
-                            <a href="Settings.html">
-                                <button
-                                    class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Settings</button>
-                            </a>
-                            <a href="../index.html">
-                                <button
-                                    class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Log out</button>
-                            </a>
+
+                            <!-- Popup -->
+                            <div id="profilePopup"
+                                class="hidden absolute right-0 mt-2 w-80 bg-white border rounded-lg shadow-lg p-4 z-50">
+                                <div class="flex items-center space-x-3">
+                                    <img src="../assets/employee.png" class="w-10 h-10 rounded-full" />
+                                    <div>
+                                        <p class="font-semibold text-black">Alex Samuel</p>
+                                        <p class="text-sm text-gray-500">employee@civilcast.com</p>
+                                    </div>
+                                </div>
+                                <hr class="my-3">
+                                <p class="text-sm text-gray-700 pl-3">Employee</p>
+                                <a href="Settings.html">
+                                    <button
+                                        class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Settings</button>
+                                </a>
+                                <a href="../index.html">
+                                    <button
+                                        class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Log
+                                        out</button>
+                                </a>
+                            </div>
                         </div>
-                    </div>
 
-                    <script>
-                        const btn = document.getElementById("profileBtn");
-                        const popup = document.getElementById("profilePopup");
+                        <script>
+                            const btn = document.getElementById("profileBtn");
+                            const popup = document.getElementById("profilePopup");
 
-                        btn.addEventListener("click", () => {
-                            popup.classList.toggle("hidden");
-                        });
-                        document.addEventListener("click", (e) => {
-                            if (!btn.contains(e.target) && !popup.contains(e.target)) {
-                                popup.classList.add("hidden");
-                            }
-                        });
-                    </script>
+                            btn.addEventListener("click", () => {
+                                popup.classList.toggle("hidden");
+                            });
+                            document.addEventListener("click", (e) => {
+                                if (!btn.contains(e.target) && !popup.contains(e.target)) {
+                                    popup.classList.add("hidden");
+                                }
+                            });
+                        </script>
                     </div>
                 </div>
             </div>

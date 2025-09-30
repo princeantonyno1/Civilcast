@@ -56,16 +56,15 @@
         <header class="flex items-center justify-between px-6 py-3 bg-top-nav-light dark:bg-top-nav-dark text-white">
             <div class="flex items-center gap-8">
                 <div class="flex items-center gap-3 bg-black px-3 py-1 rounded-md">
-                    
-                    <img class="h-9 w-9" src="../assets/favicon.png" alt="civilcast">
-                    <h1 class="text-xl font-bold text-white">Civilcast</h1>
+                    <img class="h-9 w-auto" src="../assets/civilcast-white_logo.png" alt="civilcast">
                 </div>
             </div>
             <div class="flex items-center gap-6">
                 <nav class="hidden md:flex items-center space-x-12 text-sm font-medium">
 
-                    <a class="text-primary" href="">Chat</a>
-                    <a class="hover:text-primary transition-colors" href="RequestNewKnowledge.html">Request new knowledge</a>
+                    <a class="text-primary" href="Chat.html">Chat</a>
+                    <a class="hover:text-primary transition-colors" href="RequestNewKnowledge.html">Request new
+                        knowledge</a>
                 </nav>
                 <div class="flex items-center gap-4 ml-6">
                     <button class="p-2 mt-1.5 rounded-full hover:bg-primary/20 text-gray-300">
@@ -100,7 +99,8 @@
                             </a>
                             <a href="../index.html">
                                 <button
-                                    class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Log out</button>
+                                    class="mt-2 w-full text-left text-black px-3 py-2 rounded-lg hover:bg-gray-100">Log
+                                    out</button>
                             </a>
                         </div>
                     </div>
@@ -123,69 +123,117 @@
         </header>
         <div class="flex flex-1">
             <aside class="w-80 p-6 bg-sidebar-light dark:bg-sidebar-dark hidden lg:flex flex-col gap-8">
+                <!-- Spaces -->
                 <nav>
                     <h3 class="flex items-center px-3 text-lg font-bold text-gray-900 dark:text-white mb-2">
                         <span class="material-symbols-outlined mr-2">space_dashboard</span>
                         Spaces
                     </h3>
-                    <ul class="space-y-1">
-                        <li><a class="block px-3 py-2 text-text-muted dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md"
+                    <ul class="space-y-1" data-section="spaces">
+                        <li><a class="sidebar-link block px-3 py-2 text-text-muted hover:bg-gray-200 rounded-md"
                                 href="#">Operations</a></li>
-                        <li><a class="block px-3 py-2 text-text-muted dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md"
+                        <li><a class="sidebar-link block px-3 py-2 text-text-muted hover:bg-gray-200 rounded-md"
                                 href="#">Sales &amp; Marketing</a></li>
-                        <li><a class="block px-3 py-2 text-text-muted dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md"
+                        <li><a class="sidebar-link block px-3 py-2 text-text-muted hover:bg-gray-200 rounded-md"
                                 href="#">Logistics</a></li>
-                        <li><a class="block px-3 py-2 text-text-muted dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md"
+                        <li><a class="sidebar-link block px-3 py-2 text-text-muted hover:bg-gray-200 rounded-md"
                                 href="#">Engineering &amp; Design</a></li>
-                        <li><a class="block px-3 py-2 text-text-muted dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md"
+                        <li><a class="sidebar-link block px-3 py-2 text-text-muted hover:bg-gray-200 rounded-md"
                                 href="#">Project Management</a></li>
                     </ul>
                 </nav>
+
+                <!-- Skills -->
                 <nav>
                     <h3 class="flex items-center px-3 text-lg font-bold text-gray-900 dark:text-white mb-2">
                         <span class="material-symbols-outlined mr-2">psychology</span>
                         Skills
                     </h3>
-                    <ul class="space-y-1">
-                        <li><a class="block px-3 py-2 text-text-muted dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md"
+                    <ul class="space-y-1" data-section="skills">
+                        <li><a class="sidebar-link block px-3 py-2 text-text-muted hover:bg-gray-200 rounded-md"
                                 href="#">Installation guide</a></li>
-                        <li><a class="block px-3 py-2 text-text-muted dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md"
+                        <li><a class="sidebar-link block px-3 py-2 text-text-muted hover:bg-gray-200 rounded-md"
                                 href="#">Product drawings</a></li>
-                        <li><a class="block px-3 py-2 text-text-muted dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md"
+                        <li><a class="sidebar-link block px-3 py-2 text-text-muted hover:bg-gray-200 rounded-md"
                                 href="#">Australian standards</a></li>
-                        <li><a class="block px-3 py-2 text-text-muted dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md"
+                        <li><a class="sidebar-link block px-3 py-2 text-text-muted hover:bg-gray-200 rounded-md"
                                 href="#">Our website and catalogue ...</a></li>
                     </ul>
                 </nav>
+
+                <!-- Chats -->
                 <nav>
                     <h3 class="flex items-center px-3 text-lg font-bold text-gray-900 dark:text-white mb-2">
                         <span class="material-symbols-outlined mr-2">chat</span>
                         Chats
                     </h3>
-                    <ul class="space-y-1">
-                        <li><a class="block px-3 py-2 text-black bg-gray-200 dark:text-white dark:bg-gray-700 rounded-md"
-                                href="#">Scope of AS 3996-2019</a></li>
-                        <li><a class="block px-3 py-2 text-text-muted dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md"
+                    <ul class="space-y-1" data-section="chats">
+                        <li>
+                            <!-- Always selected -->
+                            <a class="sidebar-link active block px-3 py-2 rounded-md" href="#">Scope of AS 3996-2019</a>
+                        </li>
+                        <li><a class="sidebar-link block px-3 py-2 text-text-muted hover:bg-gray-200 rounded-md"
                                 href="#">Brochure enquiry</a></li>
-                        <li><a class="block px-3 py-2 text-text-muted dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md"
+                        <li><a class="sidebar-link block px-3 py-2 text-text-muted hover:bg-gray-200 rounded-md"
                                 href="#">Surcharge Pit Grates</a></li>
-                        <li><a class="block px-3 py-2 text-text-muted dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md"
+                        <li><a class="sidebar-link block px-3 py-2 text-text-muted hover:bg-gray-200 rounded-md"
                                 href="#">Colour and Theme Details</a></li>
                     </ul>
                 </nav>
             </aside>
+
+            <script>
+                const links = document.querySelectorAll(".sidebar-link");
+
+                // Style for active state
+                function activate(link) {
+                    link.classList.add("bg-gray-200", "text-black");
+                    link.classList.remove("text-text-muted");
+                }
+
+                function deactivate(link) {
+                    link.classList.remove("bg-gray-200", "text-black");
+                    link.classList.add("text-text-muted");
+                }
+
+                // Initialize "Scope of AS 3996-2019" as always active
+                const fixedChat = document.querySelector(
+                    '[data-section="chats"] .sidebar-link.active'
+                );
+                activate(fixedChat);
+
+                links.forEach(link => {
+                    link.addEventListener("click", () => {
+                        const section = link.closest("ul[data-section]");
+                        const sectionLinks = section.querySelectorAll(".sidebar-link");
+
+                        // If it's the fixed chat item, ignore clicks
+                        if (link === fixedChat) return;
+
+                        // Deactivate others in the same section (except fixedChat)
+                        sectionLinks.forEach(l => {
+                            if (l !== fixedChat) deactivate(l);
+                        });
+
+                        // Activate clicked
+                        activate(link);
+                    });
+                });
+            </script>
             <main class="flex-1 p-6 bg-background-light dark:bg-background-dark flex flex-col">
                 <div class="max-w-4xl mx-auto flex-1 flex flex-col w-full">
                     <div class="mb-6">
                         <h2 class="text-3xl font-bold text-text-main dark:text-white">Scope of AS 3996-2019</h2>
-                        <p class="text-sm text-text-muted dark:text-gray-400">A conversation about skid rings</p>
+                        <p class="text-sm text-text-muted dark:text-gray-400">Scope of AS 3996-2019</p>
                     </div>
-                    <div class="flex-1 space-y-6 overflow-y-auto pr-4">
+                    <div class="flex-1 space-y-6 overflow-y-auto pr-4" id="chatContainer">
+                        <!-- Chat messages remain unchanged -->
                         <div class="flex items-start gap-4 justify-end">
                             <div class="flex-1 max-w-lg text-right">
                                 <div class="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg inline-block text-left">
                                     <p class="text-sm text-gray-800 dark:text-gray-200">
-                                        What is the scope and key requirements covered by the AS 3996-2019 Standard for access covers and grates?
+                                        What is the scope and key requirements covered by the AS 3996-2019 Standard for
+                                        access covers and grates?
                                     </p>
                                 </div>
                                 <p class="text-xs text-text-muted dark:text-gray-500 mt-1">John Doe - 10:30 AM</p>
@@ -194,15 +242,24 @@
                                 style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDkMTEe4NAtj6o7ZYiCQWQXVmSpaQMbIIV3v-QomJGlheCu0gU21q2WPyS751rxB8U5SniroD_bBa96ghTvDrrXgtf_IdcE4qIy2KcXh9oRN83DxVdMVnfrVFWlwIt2vqGAPMI9577cKpr9P_tHrIXuoRmKs5f-9IdlFZ2g8ICpdUSXaACE_US_PGmVD63hvNfbiAyKIiIoeJm53U68KQwNbRYFWjwlH3J0PSLZjGsXU9vVhgIJhfNIE51JNiuSXrjciqu0OCkoTPw');">
                             </div>
                         </div>
+
                         <div class="flex items-start gap-4">
                             <div
                                 class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold">
                                 C
                             </div>
-                            <div class="flex-1 max-w-lg">
-                                <div class="bg-transparent p-4 rounded-lg">
+                            <div class="flex-1 max-w-2xl"> <!-- Increased max width for AI message -->
+                                <div class="bg-transparent p-4 rounded-lg" id="aiMessage">
                                     <p class="text-sm text-text-main dark:text-gray-200">
-                                        AS 3996-2019 specifies requirements for access covers and grates used in vehicular and pedestrian areas with a clear opening of up to 1300 mm. It covers products made from materials like iron, steel, aluminium, concrete, and polymers, aiming for a minimum service life of 25 years for polymeric and 50 years for other materials. The Standard excludes fire resistance and certain classes or materials. It defines classification by load capacity, opening type, ventilation/sealing, and specifies permanent marking requirements. It includes rigorous testing for loads, watertightness, gas-tightness, slip-resistance, impact, fatigue, and UV resistance to ensure durability and safety.
+                                        AS 3996-2019 specifies requirements for access covers and grates used in
+                                        vehicular and pedestrian areas with a clear opening of up to 1300 mm. It covers
+                                        products made from materials like iron, steel, aluminium, concrete, and
+                                        polymers, aiming for a minimum service life of 25 years for polymeric and 50
+                                        years for other materials. The Standard excludes fire resistance and certain
+                                        classes or materials. It defines classification by load capacity, opening type,
+                                        ventilation/sealing, and specifies permanent marking requirements. It includes
+                                        rigorous testing for loads, watertightness, gas-tightness, slip-resistance,
+                                        impact, fatigue, and UV resistance to ensure durability and safety.
                                     </p>
                                     <div class="mt-4">
                                         <p class="text-sm font-medium text-success mb-1">AI Confidence: High (95%)</p>
@@ -211,27 +268,33 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="flex flex-wrap gap-2 mt-2">
+
+                                <!-- Action buttons in a single line -->
+                                <div class="flex flex-nowrap gap-2 mt-2">
                                     <button
-                                        class="px-3 py-1.5 text-sm font-medium text-black bg-sidebar-light rounded-md hover:opacity-90">Satisfied</button>
+                                        class="action-btn px-3 py-1.5 text-sm font-medium text-black bg-sidebar-light rounded-md hover:opacity-90"
+                                        data-action="satisfied">Satisfied</button>
                                     <button
-                                        class="px-3 py-1.5 text-sm font-medium text-black bg-sidebar-light  rounded-md hover:opacity-90">Report
-                                        issue</button>
+                                        class="action-btn px-3 py-1.5 text-sm font-medium text-black bg-sidebar-light rounded-md hover:opacity-90"
+                                        data-action="report">Report Issue</button>
                                     <button
-                                        class="px-3 py-1.5 text-sm font-medium text-black bg-sidebar-light  rounded-md hover:opacity-90">Suggest
-                                        Correction</button>
+                                        class="action-btn px-3 py-1.5 text-sm font-medium text-black bg-sidebar-light rounded-md hover:opacity-90"
+                                        data-action="suggest">Suggest Correction</button>
                                     <button
-                                        class="px-3 py-1.5 text-sm font-medium text-black bg-sidebar-light  rounded-md hover:opacity-90">Human
-                                        Assistance</button>
+                                        class="action-btn px-3 py-1.5 text-sm font-medium text-black bg-sidebar-light rounded-md hover:opacity-90"
+                                        data-action="human">Human Assistance</button>
                                     <button
-                                        class="px-3 py-1.5 text-sm font-medium text-black bg-sidebar-light  rounded-md hover:opacity-90">Add
-                                        Knowledge</button>
+                                        class="action-btn px-3 py-1.5 text-sm font-medium text-black bg-sidebar-light rounded-md hover:opacity-90"
+                                        data-action="knowledge">Add Knowledge</button>
                                 </div>
+
                                 <p class="text-xs text-text-muted dark:text-gray-500 mt-2 ml-4">Civilcast AI - 10:31 AM
                                 </p>
                             </div>
                         </div>
+
                     </div>
+
                     <div class="mt-auto pt-6">
                         <div class="relative @container">
                             <textarea
@@ -243,7 +306,7 @@
                                     <svg fill="currentColor" height="20" viewBox="0 0 256 256" width="20"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
-                                            d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Zm88-29.84q.06-2.16,0-4.32l14.92-18.64a8,8,0,0,0,1.48-7.06,107.21,107.21,0,0,0-10.88-26.25,8,8,0,0,0-6-3.93l-23.72-2.64q-1.48-1.56-3-3L186,40.54a8,8,0,0,0-3.94-6,107.71,107.71,0,0,0-26.25-10.87,8,8,0,0,0-7.06,1.49L130.16,40Q128,40,125.84,40L107.2,25.11a8,8,0,0,0-7.06-1.48A107.6,107.6,0,0,0,73.89,34.51a8,8,0,0,0-3.93,6L67.32,64.27q-1.56,1.49-3,3L40.54,70a8,8,0,0,0-6,3.94,107.71,107.71,0,0,0-10.87,26.25,8,8,0,0,0,1.49,7.06L40,125.84Q40,128,40,130.16L25.11,148.8a8,8,0,0,0-1.48,7.06,107.21,107.21,0,0,0,10.88,26.25,8,8,0,0,0,6,3.93l23.72,2.64q1.49,1.56,3,3L70,215.46a8,8,0,0,0,3.94,6,107.71,107.71,0,0,0,26.25,10.87,8,8,0,0,0,7.06-1.49L125.84,216q2.16.06,4.32,0l18.64,14.92a8,8,0,0,0,7.06,1.48,107.21,107.21,0,0,0,26.25-10.88,8,8,0,0,0,3.93-6l2.64-23.72q1.56-1.48,3-3L215.46,186a8,8,0,0,0,6-3.94,107.71,107.71,0,0,0,10.87-26.25,8,8,0,0,0-1.49-7.06Zm-16.1-6.5a73.93,73.93,0,0,1,0,8.68,8,8,0,0,0,1.74,5.48l14.19,17.73a91.57,91.57,0,0,1-6.23,15L187,173.11a8,8,0,0,0-5.1,2.64,74.11,74.11,0,0,1-6.14,6.14,8,8,0,0,0-2.64,5.1l-2.51,22.58a91.32,91.32,0,0,1-15,6.23l-17.74-14.19a8,8,0,0,0-5-1.75h-.48a73.93,73.93,0,0,1-8.68,0,8,8,0,0,0-5.48,1.74L100.45,215.8a91.57,91.57,0,0,1-15-6.23L82.89,187a8,8,0,0,0-2.64-5.1,74.11,74.11,0,0,1-6.14-6.14,8,8,0,0,0-5.1-2.64L46.43,170.6a91.32,91.32,0,0,1-6.23-15l14.19-17.74a8,8,0,0,0,1.74-5.48,73.93,73.93,0,0,1,0-8.68,8,8,0,0,0-1.74-5.48L40.2,100.45a91.57,91.57,0,0,1,6.23-15L69,82.89a8,8,0,0,0,5.1-2.64,74.11,74.11,0,0,1,6.14-6.14A8,8,0,0,0,82.89,69L85.4,46.43a91.32,91.32,0,0,1,15-6.23l17.74,14.19a8,8,0,0,0,5.48,1.74,73.93,73.93,0,0,1,8.68,0,8,8,0,0,0,5.48-1.74L155.55,40.2a91.57,91.57,0,0,1,15,6.23L173.11,69a8,8,0,0,0,2.64,5.1,74.11,74.11,0,0,1,6.14,6.14,8,8,0,0,0,5.1,2.64l22.58,2.51a91.32,91.32,0,0,1,6.23,15l-14.19,17.74A8,8,0,0,0,199.87,123.66Z">
+                                            d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Z">
                                         </path>
                                     </svg>
                                 </button>
@@ -258,6 +321,45 @@
             </main>
         </div>
     </div>
+    <script>
+        const chatContainer = document.getElementById('chatContainer');
+        const actionButtons = document.querySelectorAll('.action-btn');
+        const aiMessage = document.getElementById('aiMessage');
+
+        const responses = {
+            satisfied: "Awesome! Do you need anything else I can assist you with?",
+            report: "Thank you for reporting! Your request has been added to the queue — you'll hear back soon. Is there anything else I can help you with in the meantime?",
+            suggest: "Please add a note explaining the issue or what needs to be updated so the collaborator can assist you effectively.",
+            human: "Our collaborators will review your request and get back to you shortly. Thank you for your patience!",
+            knowledge: "Opening Knowledge Base..."
+        };
+
+        actionButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Reset all buttons
+                actionButtons.forEach(b => b.classList.remove('bg-primary', 'text-white'));
+                actionButtons.forEach(b => b.classList.add('bg-sidebar-light', 'text-black'));
+
+                // Highlight clicked button
+                btn.classList.remove('bg-sidebar-light', 'text-black');
+                btn.classList.add('bg-primary', 'text-white');
+
+                const action = btn.dataset.action;
+                let newMessage = document.createElement('div');
+                newMessage.className = "bg-gray-200 dark:bg-gray-800 p-4 rounded-lg mt-2 text-sm text-text-main dark:text-white";
+
+                if (action === 'knowledge') {
+                    window.location.href = 'RequestNewKnowledge.html';
+                    return;
+                } else {
+                    newMessage.innerText = responses[action];
+                }
+
+                chatContainer.appendChild(newMessage);
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            });
+        });
+    </script>
 </body>
 
 </html>
